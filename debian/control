@@ -1,5 +1,5 @@
 Source: squidguard
-Build-Depends: debhelper (>= 4.1.26), perl, libdb4.6-dev, bison, flex
+Build-Depends: debhelper (>= 7.0.15), perl, libdb4.6-dev, bison, flex
 Section: web
 Priority: optional
 Maintainer: Joachim Wiedorn <ad_debian@joonet.de>
