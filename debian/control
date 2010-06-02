@@ -13,8 +13,23 @@ Package: squidguard
 Architecture: any
 Depends: ${shlibs:Depends}, ${perl:Depends}, ${misc:Depends}, 
  squid | squid3, liburi-perl, libwww-perl
-Description: filter, redirector and access controller plug for Squid
- squidGuard is a free (GPL), flexible and ultra fast filter, redirector
+Suggests: squidguard-doc
+Description: filter and redirector plugin for Squid
+ squidGuard is a free, flexible and ultra fast filter, redirector
  and access controller plugin for squid.  It lets you define multiple
  access rules with different restrictions for different user groups on
  a squid cache.  squidGuard uses squid's standard redirector interface.
+
+Package: squidguard-doc
+Architecture: all
+Section: doc
+Depends: squidguard (>= ${source:Version}), ${misc:Depends}
+Conflicts: squidguard (<= 1.4)
+Replaces: squidguard (<= 1.4)
+Description: filter and redirector plugin for Squid - Documentation
+ squidGuard is a free, flexible and ultra fast filter, redirector
+ and access controller plugin for squid.  It lets you define multiple
+ access rules with different restrictions for different user groups on
+ a squid cache.  squidGuard uses squid's standard redirector interface.
+ .
+ This package contains some older html and txt documentation.

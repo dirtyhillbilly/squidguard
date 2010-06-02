@@ -28,8 +28,9 @@ squidguard (1.4-1) unstable; urgency=medium
   * Remove unusable and old manpages in debian directory.
   * Add new (rewritten) manual pages.
   * Some changes in package configuration files.
+  * Split package: add config for squidguard-doc package.
 
- -- Joachim Wiedorn <ad_debian@joonet.de>  Wed, 02 Jun 2010 20:42:06 +0200
+ -- Joachim Wiedorn <ad_debian@joonet.de>  Wed, 02 Jun 2010 21:04:05 +0200
 
 squidguard (1.2.0-9) unstable; urgency=high
 
