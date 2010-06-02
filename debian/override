@@ -1,1 +1,0 @@
-squidguard: non-standard-dir-perm var/lib/squidguard/db/ 2770 != 0755
