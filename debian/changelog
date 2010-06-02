@@ -12,8 +12,9 @@ squidguard (1.4-1) unstable; urgency=low
     - Add Upstream homepage URL.
   * Move to source format 3.0 (quilt).
   * Update path in debian/watch.
+  * Update and formatting debian/copyright.
 
- -- Joachim Wiedorn <ad_debian@joonet.de>  Wed, 02 Jun 2010 13:01:46 +0200
+ -- Joachim Wiedorn <ad_debian@joonet.de>  Wed, 02 Jun 2010 14:34:20 +0200
 
 squidguard (1.2.0-9) unstable; urgency=high
 

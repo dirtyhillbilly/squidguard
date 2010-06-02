@@ -1,18 +1,44 @@
-This package was debianized by Ivan E. Moore II <rkrusty@debian.org> on
-Tue,  7 Mar 2000 12:22:47 -0700.
-It is currently maintained by
-Víctor Pérez Pereira <vperez@debianvenezuela.org>
+This work was packaged for Debian by:
 
-It was downloaded from <http://www.squidguard.org/download/>.
+    Ivan E. Moore II <rkrusty@debian.org> on Tue,  7 Mar 2000 12:22:47 -0700.
 
-This software product, squidGuard, is copyrighted (C) 1999 by
-ElTele \xd8st AS, Oslo, Norway, with all rights reserved.
- 
-This program is free software; you can redistribute it and/or modify it
-under the terms of the GNU General Public License (version 2) as
-published by the Free Software Foundation.  It is distributed in the
-hope that it will be useful, but WITHOUT ANY WARRANTY; without even the
-implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
-PURPOSE.  See the GNU General Public License (GPL) for more details.
- 
-You can find a full copy of the GPL in /usr/share/common-licenses/GPL
+This work was new packaged for Debian by:
+
+    Joachim Wiedorn <ad_debian@joonet.de> on Mon, 31 May 2010 20:59:00 +0200
+
+It was downloaded from:
+
+    http://www.squidguard.org/Downloads/
+
+Upstream Author(s):
+
+    Shalla Secure Services, Gauting, Germany
+
+Copyright:
+
+    Copyright (c) 1999 Tele Danmark InterNordia, Oslo, Norway
+    Copyright (c) 2006 Shalla Secure Services, Gauting, Germany
+
+License:
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License version 2 as 
+    published by the Free Software Foundation.
+
+    This package is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+On Debian systems, the complete text of the GNU General Public License 
+version 2 can be found in `/usr/share/common-licenses/GPL-2'.
+
+
+The Debian packaging is:
+
+    Copyright (C) 2010 Joachim Wiedorn
+
+and is licensed under the GPL version 2, see above.
