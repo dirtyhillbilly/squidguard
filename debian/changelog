@@ -13,6 +13,7 @@ squidguard (1.4-1) unstable; urgency=low
   * Move to source format 3.0 (quilt).
   * Update path in debian/watch.
   * Update and formatting debian/copyright.
+  * Update 'update-squidguard' for use with Squid3. (Closes: #541602)
 
  -- Joachim Wiedorn <ad_debian@joonet.de>  Wed, 02 Jun 2010 14:34:20 +0200
 
