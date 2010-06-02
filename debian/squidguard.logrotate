@@ -1,0 +1,12 @@
+#
+#	Logrotate fragment for squidguard.
+#
+/var/log/squid/*Guard*.log {
+	weekly
+	rotate 9
+	compress
+	delaycompress
+	missingok
+	notifempty
+	create 644 proxy proxy
+}
