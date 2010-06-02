@@ -2,7 +2,7 @@ Source: squidguard
 Build-Depends: debhelper (>= 4.1.26), perl, libdb4.6-dev, bison, flex
 Section: web
 Priority: optional
-Maintainer: Debian QA Group <packages@qa.debian.org>
+Maintainer: Joachim Wiedorn <ad_debian@joonet.de>
 Standards-Version: 3.6.2
 
 Package: squidguard

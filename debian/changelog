@@ -1,6 +1,7 @@
 squidguard (1.4-1) unstable; urgency=low
 
   * New upstream release. (Closes: #372709, #491673, #535158)
+  * New Debian maintainer. (Closes: #576169)
 
  -- Joachim Wiedorn <ad_debian@joonet.de>  Wed, 02 Jun 2010 13:01:46 +0200
 
