@@ -1,4 +1,4 @@
-squidguard (1.4-1) unstable; urgency=low
+squidguard (1.4-1) unstable; urgency=medium
 
   * New upstream release. (Closes: #372709, #491673, #535158)
   * New Debian maintainer. (Closes: #576169)
@@ -36,7 +36,7 @@ squidguard (1.2.0-9) unstable; urgency=high
   * Security: fix buffer overflow in sgLog.c.
     Fixes: CVE-2009-3700.
   * Security: fix buffer overflow in sgDiv.c.
-    Fixes: CVE-2009-3700.
+    Fixes: CVE-2009-3826.
   * Closes: #553319 (two security issues described above).
   * Setting maintained to QA.    
   
