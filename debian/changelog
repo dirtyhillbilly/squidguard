@@ -14,6 +14,10 @@ squidguard (1.4-1) unstable; urgency=low
   * Update path in debian/watch.
   * Update and formatting debian/copyright.
   * Update 'update-squidguard' for use with Squid3. (Closes: #541602)
+  * debian/README.Debian:
+    - Update hints about Squid / Squid3 configuration. (Closes: #403875)
+    - Remove old hint to chastity-list.
+    - Update and refine some informations and use headlines.
 
  -- Joachim Wiedorn <ad_debian@joonet.de>  Wed, 02 Jun 2010 14:34:20 +0200
 
