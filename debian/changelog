@@ -18,6 +18,11 @@ squidguard (1.4-1) unstable; urgency=low
     - Update hints about Squid / Squid3 configuration. (Closes: #403875)
     - Remove old hint to chastity-list.
     - Update and refine some informations and use headlines.
+  * debian/patches:
+    - Patch for use of $DESTDIR in Makefile.
+    - Security: Patch for buffer overflow in sgLog.c (Fixes: CVS-2009-3700).
+    - Security: Patch for buffer overflow in sgDiv.c (Fixes: CVS-2009-3826).
+    - Patch for update links in documentation.
 
  -- Joachim Wiedorn <ad_debian@joonet.de>  Wed, 02 Jun 2010 14:34:20 +0200
 

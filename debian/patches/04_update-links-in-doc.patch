@@ -1,0 +1,36 @@
+Package:     squidguard
+Subject:     Update links in documentation
+Author:      Joachim Wiedorn <ad_debian at joonet.de>
+Forwarded:   no
+Last-Update: 2010-06-01
+
+Use the same links in doc/configure.txt as in CONFIGURATION.
+---
+
+diff -urN v03/doc/configure.txt v04/doc/configure.txt
+--- v03/doc/configure.txt	2007-11-16 17:58:32.000000000 +0100
++++ v04/doc/configure.txt	2008-12-23 22:17:22.000000000 +0100
+@@ -131,13 +131,13 @@
+ 
+ References
+ 
+-   1. http://squidguard.shalla.de/index.html
+-   2. http://squidguard.shalla.de/Doc/index.html
+-   3. http://squidguard.shalla.de/download.html
+-   4. http://squidguard.shalla.de/blacklists.html
+-   5. http://squidguard.shalla.de/addsoft.html
+-   6. http://squidguard.shalla.de/Doc/install.html
+-   7. http://squidguard.shalla.de/Doc/configure.html
+-   8. http://squidguard.shalla.de/Doc/extended.html
+-   9. http://squidguard.shalla.de/Doc/known_issues.html
+-  10. http://squidguard.shalla.de/Doc/extended.html
++   1. http://www.squidguard.org/index.html
++   2. http://www.squidguard.org/Doc/index.html
++   3. http://www.squidguard.org/download.html
++   4. http://www.squidguard.org/blacklists.html
++   5. http://www.squidguard.org/addsoft.html
++   6. http://www.squidguard.org/Doc/install.html
++   7. http://www.squidguard.org/Doc/configure.html
++   8. http://www.squidguard.org/Doc/extended.html
++   9. http://www.squidguard.org/Doc/known_issues.html
++  10. http://www.squidguard.org/Doc/extended.html
