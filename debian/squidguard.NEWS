@@ -1,11 +1,10 @@
-squidguard (1.2.0-6) unstable; urgency=low
+squidguard (1.4-1) unstable; urgency=medium
 
-  * Squidguard now uses DB4.3. Rebuild your blacklist databases.
+  * Squidguard now uses DB4.7. Please rebuild your blacklist databases.
     You need to make sure that you rebuild all your Squidguard blacklists
     otherwise Squidguard and ultimatly Squid may not function properly. 
     Unless you have disabled it during installation, any blacklists listed
     in /etc/squid/squidGuard.conf will be rebuilt. You can use
     /usr/sbin/update-squidguard to manually perform a rebuild.
 
- -- Stefan Fritsch <sf@sfritsch.de>  Wed, 17 Aug 2005 22:23:56 +0200
-
+ -- Joachim Wiedorn <ad_debian@joonet.de>  Mon, 31 May 2010 20:59:00 +0200

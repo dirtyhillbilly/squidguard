@@ -1,2 +1,3 @@
 samples/*.cgi
+samples/*.conf
 contrib/squidGuardRobot/*

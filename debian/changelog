@@ -27,8 +27,9 @@ squidguard (1.4-1) unstable; urgency=medium
   * Add 'set -e' in debian/postinst.
   * Remove unusable and old manpages in debian directory.
   * Add new (rewritten) manual pages.
+  * Some changes in package configuration files.
 
- -- Joachim Wiedorn <ad_debian@joonet.de>  Wed, 02 Jun 2010 15:31:13 +0200
+ -- Joachim Wiedorn <ad_debian@joonet.de>  Wed, 02 Jun 2010 20:42:06 +0200
 
 squidguard (1.2.0-9) unstable; urgency=high
 
