@@ -29,6 +29,8 @@ squidguard (1.4-1) unstable; urgency=medium
   * Add new (rewritten) manual pages.
   * Some changes in package configuration files.
   * Split package: add config for squidguard-doc package.
+  * Use simple DH-syntax for debian/rules.
+  * Set debhelper version to >= 7.0.50.
 
  -- Joachim Wiedorn <ad_debian@joonet.de>  Wed, 02 Jun 2010 21:04:05 +0200
 
