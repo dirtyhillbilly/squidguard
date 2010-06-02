@@ -1,0 +1,67 @@
+#!/usr/bin/make -f
+# This file is public domain software, originally written by Joey Hess. 
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+build: build-stamp
+build-stamp:
+	dh_testdir
+
+	./configure --prefix=/usr --mandir=\$${prefix}/share/man \
+		--infodir=\$${prefix}/share/info \
+		--with-sg-config=/etc/squid/squidGuard.conf \
+		--with-sg-logdir=/var/log/squid \
+		--with-sg-dbhome=/var/lib/squidguard/db \
+		--with-db=/usr
+	$(MAKE)
+
+	touch build-stamp
+
+clean:
+	dh_testdir
+	dh_testroot
+	rm -f build-stamp
+
+	[ ! -f Makefile ] || $(MAKE) distclean
+
+	dh_clean
+
+install: build
+	dh_testdir
+	dh_testroot
+	dh_clean -k
+	dh_installdirs
+
+	$(MAKE) install DESTDIR=$(CURDIR)/debian/squidguard
+	install -D -m 644 debian/override \
+		debian/squidguard/usr/share/lintian/overrides/squidguard
+
+# Build architecture-independent files here.
+binary-indep: build install
+
+# Build architecture-dependent files here.
+binary-arch: build install
+	dh_testdir
+	dh_testroot
+	dh_installchangelogs CHANGELOG
+	dh_installdocs
+	dh_installexamples
+	dh_install
+	dh_installdebconf
+	dh_installman debian/*.1
+	dh_link
+	dh_strip
+	dh_compress
+	dh_fixperms
+	chown root.root -R debian/squidguard/var/lib/squidguard/db
+	chmod 0755 debian/squidguard/var/lib/squidguard/db
+	dh_perl
+	dh_installdeb
+	dh_shlibdeps
+	dh_gencontrol
+	dh_md5sums
+	dh_builddeb
+
+binary: binary-indep binary-arch
+.PHONY: build clean binary-indep binary-arch binary install

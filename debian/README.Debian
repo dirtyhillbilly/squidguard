@@ -1,0 +1,51 @@
+squidguard for Debian
+----------------------
+ 
+I'm including all the contrib scripts into the main package.  This includes
+squidGuardRobot which is basically beta and has NO documentation at this time.
+Other programs included are:
+
+    sgclean - removes redundant entries in domain files and url files. 
+    hostbyname - takes a squidGuard domain or url list and does some half
+                 harted effort to expand it with the corresponding IP-addresses
+
+
+All 3 are perl scripts so just take a look at them to find out the proper
+command line arguments and all.   I will work on adding proper documentation
+when I can (or when they become available).
+
+There is also a squidGuard.cgi script that you can use.  It's in the
+/usr/share/doc/squidguard/examples directory.  I'm leaving it there as
+some people may not want to run a separate web server on the same server
+as the squid proxy.
+
+To use squidGuard, you must etc /etc/squid/squidGuard.conf, setup your 
+db files and whatnot, then modify your squid.conf file.  The following 
+piece in squid.conf needs to be set:
+
+---
+#  TAG: redirect_program
+#       Specify the location of the executable for the URL redirector.
+#       Since they can perform almost any function there isn't one included.
+#       See the Release-Notes for information on how to write one.
+#       By default, a redirector is not used.
+#
+redirect_program /usr/bin/squidGuard -c /etc/squid/squidGuard.conf
+
+
+You also need to make sure all your blacklist files are owned by the 
+"proxy" user. All these files need to be located under /var/lib/squidguard/db
+
+
+---
+
+Blacklists can be found in the chastity-list package.
+
+
+---
+
+And that's it. Take a look at the other .html files in /usr/share/doc/squidguard
+for more help
+
+
+ -- Ivan E. Moore II <rkrusty@debian.org> 

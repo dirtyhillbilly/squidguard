@@ -1,0 +1,3 @@
+var/lib/squidguard/db
+var/lib/squidguard/squidGuardRobot
+var/log/squid

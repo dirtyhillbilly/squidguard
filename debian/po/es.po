@@ -1,0 +1,80 @@
+# squidguard translation to spanish
+# Copyright (C) 2007 Software in the Public Interest
+# This file is distributed under the same license as the postfix package.
+#
+# Changes:
+# - Initial translation
+#       Rudy Godoy <rudy@stone-head.org>, 2007
+#
+#
+#  Traductores, si no conoce el formato PO, merece la pena leer la 
+#  documentación de gettext, especialmente las secciones dedicadas a este
+#  formato, por ejemplo ejecutando:
+#         info -n '(gettext)PO Files'
+#         info -n '(gettext)Header Entry'
+#
+# Equipo de traducción al español, por favor lean antes de traducir
+# los siguientes documentos:
+#
+# - El proyecto de traducción de Debian al español
+#   http://www.debian.org/intl/spanish/coordinacion
+#   especialmente las notas de traducción en
+#   http://www.debian.org/intl/spanish/notas
+#
+# - La guía de traducción de po's de debconf:
+#   /usr/share/doc/po-debconf/README-trans
+#   o http://www.debian.org/intl/l10n/po-debconf/README-trans
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: squidguard 1.2.0\n"
+"Report-Msgid-Bugs-To: squidguard@packages.debian.org\n"
+"POT-Creation-Date: 2008-03-27 08:29+0100\n"
+"PO-Revision-Date: 2007-03-15 12:39-0500\n"
+"Last-Translator: Rudy Godoy <rudy@stone-head.org>\n"
+"Language-Team: Debian spanish team <debian-l10n-spanish@lists.debian.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Type: boolean
+#. Description
+#: ../squidguard.templates:1001
+msgid "Rebuild Squidguard blacklist database during postinst?"
+msgstr ""
+"¿Desea reconstruir las bases de datos de lista negra de Squidguard en la "
+"instalación?"
+
+#. Type: boolean
+#. Description
+#: ../squidguard.templates:1001
+msgid ""
+"Rebuilding the blacklist databases is time consuming and under some "
+"circumstances could cause problems.  With the breakout of individual "
+"blacklist section packages the time it takes for each package to rebuild "
+"will be extensive.  Also it may not be desireable to rebuild these databases "
+"on production servers.  You can manually perform a rebuild by running /usr/"
+"sbin/update-squidguard."
+msgstr ""
+"La reconstrucción de las bases de datos de lista negra demanda tiempo y "
+"podría causar problemas bajo algunas circunstancias. Con la separación en "
+"secciones de paquetes individuales de listas negras, el tiempo que se tome "
+"para reconstruir cada paquete será extenso. También, puede que no sea "
+"apropiado reconstruir estas bases de datos en servidores de producción. "
+"Puede reconstruirlas en forma manual invocando «/usr/sbin/update-squigguard»."
+
+#~ msgid "Squidguard now uses DB4.3. Rebuild your blacklist databases."
+#~ msgstr ""
+#~ "Squidguard ahora utiliza DB4.3. Reconstruya sus base de datos de lista "
+#~ "negra."
+
+#~ msgid ""
+#~ "You need to make sure that you rebuild all your Squidguard blacklists "
+#~ "otherwise Squidguard and ultimatly Squid may not function properly.  By "
+#~ "default any blacklists listed in /etc/squid/squidGuard.conf will be "
+#~ "rebuilt."
+#~ msgstr ""
+#~ "Debe asegurarse de que ha reconstruido todas las listas negras de "
+#~ "SquirdGuard de otro modo es posible que Squidguard o, finalmente, Squid "
+#~ "no funcionen adecuadamente. Por omisión se reconstruirán las listas "
+#~ "negras definidas en «/etc/squid/squidGuard»."

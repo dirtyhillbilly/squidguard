@@ -1,0 +1,16 @@
+Source: squidguard
+Build-Depends: debhelper (>= 4.1.26), perl, libdb4.6-dev, bison, flex
+Section: web
+Priority: optional
+Maintainer: Debian QA Group <packages@qa.debian.org>
+Standards-Version: 3.6.2
+
+Package: squidguard
+Architecture: any
+Depends: ${shlibs:Depends}, ${perl:Depends}, ${misc:Depends}, squid | squid3, liburi-perl, libwww-perl
+Suggests: chastity-list
+Description: filter, redirector and access controller plug for Squid
+ squidGuard is a free (GPL), flexible and ultra fast filter, redirector
+ and access controller plugin for squid.  It lets you define multiple
+ access rules with different restrictions for different user groups on
+ a squid cache.  squidGuard uses squid's standard redirector interface.

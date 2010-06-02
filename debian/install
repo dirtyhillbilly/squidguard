@@ -1,0 +1,5 @@
+debian/squidGuard.conf		etc/squid
+contrib/sgclean/sgclean		usr/bin
+contrib/hostbyname/hostbyname	usr/bin
+doc/*.{txt,gif,html}		usr/share/doc/squidguard/doc
+debian/update-squidguard	usr/sbin

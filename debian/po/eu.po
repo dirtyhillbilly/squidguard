@@ -1,0 +1,44 @@
+# translation of squidguard2.po to Euskara
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Aitor Ibañez  <aitiba@gmail.com>, 2008.
+msgid ""
+msgstr ""
+"Project-Id-Version: squidguard2\n"
+"Report-Msgid-Bugs-To: squidguard@packages.debian.org\n"
+"POT-Creation-Date: 2008-03-27 08:29+0100\n"
+"PO-Revision-Date: 2008-07-20 18:25+0200\n"
+"Last-Translator: Aitor Ibañez  <aitiba@gmail.com>\n"
+"Language-Team: Euskara <itzulpena@euskalgnu.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+#. Type: boolean
+#. Description
+#: ../squidguard.templates:1001
+msgid "Rebuild Squidguard blacklist database during postinst?"
+msgstr ""
+"Berreraiki Squidguard-en zerrenda beltzen datu-basea instalazioa bukatu "
+"ondoren?"
+
+#. Type: boolean
+#. Description
+#: ../squidguard.templates:1001
+msgid ""
+"Rebuilding the blacklist databases is time consuming and under some "
+"circumstances could cause problems.  With the breakout of individual "
+"blacklist section packages the time it takes for each package to rebuild "
+"will be extensive.  Also it may not be desireable to rebuild these databases "
+"on production servers.  You can manually perform a rebuild by running /usr/"
+"sbin/update-squidguard."
+msgstr ""
+"Zerrenda beltzen datu-basea berreraikitzeak denbora asko darama eta egoera "
+"batzuetan arazoak eragin ditzake. Zerrenda beltzeko sekzio bakoitzeko "
+"paketea askatzean, pakete bakoitza berriro eraikitzeko behar den denbora oso "
+"luzea izan daiteke.Ez da gomendagarria produkzioan dauden zerbitzarietan "
+"datu-base hauek berriro eraikitzea. Berreraikitze bat eskuz egiteko "
+"exekutatu honako komandoa: usr/sbin/update-squidguard"

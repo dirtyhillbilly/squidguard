@@ -1,0 +1,18 @@
+This package was debianized by Ivan E. Moore II <rkrusty@debian.org> on
+Tue,  7 Mar 2000 12:22:47 -0700.
+It is currently maintained by
+Víctor Pérez Pereira <vperez@debianvenezuela.org>
+
+It was downloaded from <http://www.squidguard.org/download/>.
+
+This software product, squidGuard, is copyrighted (C) 1999 by
+ElTele \xd8st AS, Oslo, Norway, with all rights reserved.
+ 
+This program is free software; you can redistribute it and/or modify it
+under the terms of the GNU General Public License (version 2) as
+published by the Free Software Foundation.  It is distributed in the
+hope that it will be useful, but WITHOUT ANY WARRANTY; without even the
+implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
+PURPOSE.  See the GNU General Public License (GPL) for more details.
+ 
+You can find a full copy of the GPL in /usr/share/common-licenses/GPL
