@@ -3,7 +3,7 @@ Build-Depends: debhelper (>= 7.0.15), perl, libdb4.6-dev, bison, flex
 Section: web
 Priority: optional
 Maintainer: Joachim Wiedorn <ad_debian@joonet.de>
-Standards-Version: 3.6.2
+Standards-Version: 3.8.4
 
 Package: squidguard
 Architecture: any
