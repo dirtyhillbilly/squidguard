@@ -25,6 +25,7 @@ squidguard (1.4-1) unstable; urgency=low
     - Patch for update links in documentation.
   * Add debian/postrm for removing etc/default/squidguard. (Closes: #385093)
   * Add 'set -e' in debian/postinst.
+  * Remove unusable and old manpages in debian directory.
 
  -- Joachim Wiedorn <ad_debian@joonet.de>  Wed, 02 Jun 2010 14:34:20 +0200
 
