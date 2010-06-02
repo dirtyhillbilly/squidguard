@@ -8,6 +8,8 @@ squidguard (1.4-1) unstable; urgency=low
     - Bump Standards-Version to 3.8.4.
     - Add build dependency libdb4.7-dev. (Closes: #548489)
     - Remove suggestion to chastity-list. (Closes: #514636)
+    - Add Vcs Git and Browser URLs.
+    - Add Upstream homepage URL.
 
  -- Joachim Wiedorn <ad_debian@joonet.de>  Wed, 02 Jun 2010 13:01:46 +0200
 
