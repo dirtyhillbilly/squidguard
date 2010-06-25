@@ -1,3 +1,11 @@
+squidguard (1.4-2) unstable; urgency=medium
+
+  * debian/copyright:
+    - reorganize format (see DEB-5).
+    - add special copyright and license for some files.
+
+ -- Joachim Wiedorn <ad_debian@joonet.de>  Sun, 20 Jun 2010 14:39:08 +0200
+
 squidguard (1.4-1) unstable; urgency=medium
 
   * New upstream release. (Closes: #372709, #491673, #535158)
