@@ -1,0 +1,67 @@
+Package:     squidguard
+Subject:     move setuserinfo() to sg.y.in
+Author:      Joachim Wiedorn <ad_debian at joonet.de>
+Origin:      upstream|backport|vendor|other, <URL>
+Forwarded:   no
+Last-Update: 2010-06-25
+
+For real 64 bit architectures we get a segmentation fault.
+It seems the reason is that the function setuserinfo() is
+unknown in sg.y. This patch move the function in sg.y.in
+---
+
+diff -urN v05/src/sgDiv.c.in v06/src/sgDiv.c.in
+--- v05/src/sgDiv.c.in	2010-05-31 23:48:28.000000000 +0200
++++ v06/src/sgDiv.c.in	2010-06-25 16:57:10.101216185 +0200
+@@ -865,22 +865,3 @@
+   return buf;
+ }
+ 
+-#if __STDC__
+-struct UserInfo *setuserinfo()
+-#else
+-struct UserInfo *setuserinfo()
+-#endif
+-{
+-  static struct UserInfo uq;
+-  uq.status = 0; 
+-  uq.time = 0; 
+-  uq.consumed = 0; 
+-  uq.last = 0; 
+-#ifdef HAVE_LIBLDAP
+-  uq.ldapuser = 0;
+-  uq.found = 0;
+-  uq.cachetime = 0;
+-#endif
+-  return &uq;
+-}
+-
+diff -urN v05/src/sg.y.in v06/src/sg.y.in
+--- v05/src/sg.y.in	2008-05-17 20:25:18.000000000 +0200
++++ v06/src/sg.y.in	2010-06-25 16:57:09.026513217 +0200
+@@ -389,6 +389,25 @@
+   fclose(yyin);
+ }
+ 
++#if __STDC__
++struct UserInfo *setuserinfo()
++#else
++struct UserInfo *setuserinfo()
++#endif
++{
++  static struct UserInfo uq;
++  uq.status = 0; 
++  uq.time = 0; 
++  uq.consumed = 0; 
++  uq.last = 0; 
++#ifdef HAVE_LIBLDAP
++  uq.ldapuser = 0;
++  uq.found = 0;
++  uq.cachetime = 0;
++#endif
++  return &uq;
++}
++
+ 
+ /*
+   

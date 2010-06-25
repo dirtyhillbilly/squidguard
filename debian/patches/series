@@ -3,3 +3,4 @@
 03_fix-bypass-problems-with-urls.patch
 04_update-links-in-doc.patch
 05_distclean-more-files.patch
+06_move-setuserinfo-to-sg-y.patch
