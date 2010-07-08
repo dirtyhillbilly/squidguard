@@ -1,7 +1,7 @@
 squidguard (1.4-2) unstable; urgency=low
 
   * debian/copyright:
-    - reorganize format (see DEB-5).
+    - reorganize format (see DEP-5).
     - add special copyright and license for some files.
   * Fix for IA64: move setuserinfo() to sg.y.in.
   * Add danish debconf translation. (Closes: #586954)
