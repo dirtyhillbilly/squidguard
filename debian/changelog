@@ -1,4 +1,4 @@
-squidguard (1.4-3) unstable; urgency=high
+squidguard (1.4-3) unstable; urgency=low
 
   * samples:
     - Update adding variables in sample.conf.in.
@@ -13,7 +13,7 @@ squidguard (1.4-3) unstable; urgency=high
     - Update Vcs links to new server anonscm.debian.org.
     - Update dependency of squidguard to squid3 | squid.
 
- -- Joachim Wiedorn <ad_debian@joonet.de>  Sun, 29 May 2011 15:55:35 +0200
+ -- Joachim Wiedorn <ad_debian@joonet.de>  Sun, 29 May 2011 20:55:35 +0200
 
 squidguard (1.4-2) unstable; urgency=low
 

@@ -7,7 +7,7 @@ Build-Depends: debhelper (>= 7.0.50~),
  perl, bison, flex
 Standards-Version: 3.9.2
 Vcs-Git: git://anonscm.debian.org/collab-maint/squidguard.git
-Vcs-Browser: http://anonscm.debian.org/git/collab-maint/squidguard.git
+Vcs-Browser: http://anonscm.debian.org/gitweb/?p=collab-maint/squidguard.git
 Homepage: http://www.squidguard.org
 
 Package: squidguard
