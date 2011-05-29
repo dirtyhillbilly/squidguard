@@ -1,8 +1,7 @@
 Package:     squidguard
 Subject:     move setuserinfo() to sg.y.in
 Author:      Joachim Wiedorn <ad_debian at joonet.de>
-Origin:      upstream|backport|vendor|other, <URL>
-Forwarded:   no
+Forwarded:   yes
 Last-Update: 2010-06-25
 
 For real 64 bit architectures we get a segmentation fault.

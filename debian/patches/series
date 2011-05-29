@@ -1,6 +1,6 @@
 01_add-destdir-in-makefile.patch
 02_fix-buffer-overflow-sglog.patch
 03_fix-bypass-problems-with-urls.patch
-04_update-links-in-doc.patch
+04_update-links-in-doc-files.patch
 05_distclean-more-files.patch
 06_move-setuserinfo-to-sg-y.patch
