@@ -1,4 +1,4 @@
-squidguard (1.4-3) unstable; urgency=low
+squidguard (1.4-3) unstable; urgency=high
 
   * samples:
     - Update adding variables in sample.conf.in.
@@ -6,6 +6,10 @@ squidguard (1.4-3) unstable; urgency=low
   * Update of debian/squidGuard.conf.   (Closes: #415306)
   * Update of debian/copyright.
   * Add support for use with OpenLDAP (thanks to J.A. Medina).
+  * debian/control:
+    - Update dependencies to libdb4.8. (see #621376) (Closes: #628279)
+    - Bump Standards-Version to 3.9.2 (no changes).
+    - Update Vcs links to new server anonscm.debian.org.
 
  -- Joachim Wiedorn <ad_debian@joonet.de>  Sun, 29 May 2011 10:36:35 +0200
 

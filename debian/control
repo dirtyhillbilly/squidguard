@@ -2,17 +2,18 @@ Source: squidguard
 Section: web
 Priority: optional
 Maintainer: Joachim Wiedorn <ad_debian@joonet.de>
-Build-Depends: debhelper (>= 7.0.50), perl,
- libldap2-dev | libldap-dev, libdb4.7-dev | libdb4.6-dev, bison, flex
-Standards-Version: 3.8.4
-Vcs-Git: git://git.debian.org/git/collab-maint/squidguard.git
-Vcs-Browser: http://git.debian.org/?p=collab-maint/squidguard.git
+Build-Depends: debhelper (>= 7.0.50~), 
+ libldap2-dev | libldap-dev, libdb4.8-dev,
+ perl, bison, flex
+Standards-Version: 3.9.2
+Vcs-Git: git://anonscm.debian.org/collab-maint/squidguard.git
+Vcs-Browser: http://anonscm.debian.org/git/collab-maint/squidguard.git
 Homepage: http://www.squidguard.org
 
 Package: squidguard
 Architecture: any
-Depends: ${shlibs:Depends}, ${perl:Depends}, ${misc:Depends}, 
- squid | squid3, liburi-perl, libwww-perl
+Depends: squid3 | squid, liburi-perl, libwww-perl,
+ ${shlibs:Depends}, ${perl:Depends}, ${misc:Depends}
 Suggests: ldap-utils, squidguard-doc
 Description: filter and redirector plugin for Squid
  squidGuard is a free, flexible and ultra fast filter, redirector
@@ -24,7 +25,7 @@ Package: squidguard-doc
 Architecture: all
 Section: doc
 Depends: squidguard (>= ${source:Version}), ${misc:Depends}
-Conflicts: squidguard (<= 1.3)
+Breaks: squidguard (<= 1.3)
 Replaces: squidguard (<= 1.3)
 Description: filter and redirector plugin for Squid - Documentation
  squidGuard is a free, flexible and ultra fast filter, redirector
