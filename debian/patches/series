@@ -4,3 +4,4 @@
 04_update-links-in-doc-files.patch
 05_distclean-more-files.patch
 06_move-setuserinfo-to-sg-y.patch
+07_update-samples-to-utf8.patch

@@ -1,3 +1,11 @@
+squidguard (1.4-3) unstable; urgency=low
+
+  * samples:
+    - Update adding variables in sample.conf.in.
+    - Convert all sample files to UTF-8.
+
+ -- Joachim Wiedorn <ad_debian@joonet.de>  Sun, 29 May 2011 10:36:35 +0200
+
 squidguard (1.4-2) unstable; urgency=low
 
   * debian/copyright:
