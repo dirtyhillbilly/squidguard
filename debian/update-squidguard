@@ -3,7 +3,7 @@
 #       update-squidguard  -  db update script for SquidGuard
 #
 #       Copyright 2003 Ivan E. Moore II <rkrusty at debian.org>
-#       Copyright 2010 Joachim Wiedorn <ad_debian at joonet.de>
+#       Copyright 2010-2011 Joachim Wiedorn <ad_debian at joonet.de>
 #       
 #       This program is free software; you can redistribute it and/or modify
 #       it under the terms of the GNU General Public License version 2 as 
@@ -19,25 +19,29 @@
 #       Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
 #       MA 02110-1301, USA.
 
-echo -n "Double checking directory and file permissions..."
-chown -R proxy.proxy /var/lib/squidguard/db >/dev/null 2>&1
-chmod 2770 /var/lib/squidguard/db >/dev/null 2>&1
-echo "done!"
+echo "Double checking directory and file permissions..."
+chown -R proxy.proxy /var/lib/squidguard/db   1>/dev/null
+chmod 2770 /var/lib/squidguard/db          1>/dev/null
 
-echo -n "Re-building SquidGuard db files..."
-su - proxy -c "squidGuard -C all" >/dev/null 2>&1
-su - proxy -c "squidGuard -u" >/dev/null 2>&1
-echo "done!"
+LOGDIR=/var/log/squid
+LOGFILE=squidGuard.log
+if test ! -f ${LOGDIR}/${LOGFILE}; then
+	echo "Create logfile for squidguard..."
+	test -d ${LOGDIR} || mkdir -p ${LOGDIR}
+	touch ${LOGDIR}/${LOGFILE}
+fi
+chown -R proxy.proxy /var/log/squid     1>/dev/null
+chgrp proxy /etc/squid/squidGuard.conf  1>/dev/null
+
+echo "Re-building SquidGuard database..."
+su - proxy -c "squidGuard -C all"
+echo "Update finished!"
 
 if [ -e /etc/init.d/squid3 ]; then
-	echo -n "Reloading Squid3..."
-	/etc/init.d/squid3 reload >/dev/null 2>&1
-	echo "done!"
+	/etc/init.d/squid3 reload
 elif [ -e /etc/init.d/squid ]; then
-	echo -n "Reloading Squid..."
-	/etc/init.d/squid reload >/dev/null 2>&1
-	echo "done!"
+	/etc/init.d/squid reload
 else
-	echo "No init script found for reloading!"
+	echo "No init script found for reloading Squid!"
 fi
 

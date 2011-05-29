@@ -6,6 +6,7 @@ squidguard (1.4-3) unstable; urgency=high
   * Update of debian/squidGuard.conf.   (Closes: #415306)
   * Update of debian/copyright.
   * Add support for use with OpenLDAP (thanks to J.A. Medina).
+  * Optimize script debian/update-squidguard.
   * debian/control:
     - Update dependencies to libdb4.8. (see #621376) (Closes: #628279)
     - Bump Standards-Version to 3.9.2 (no changes).
