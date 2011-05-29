@@ -1,11 +1,11 @@
-Format: http://svn.debian.org/wsvn/dep/web/deps/dep5.mdwn?op=file&rev=135
-Name: squidguard
-Maintainer: Shalla Secure Services, Gauting, Germany
+Format: http://dep.debian.org/wsvn/dep/dep5/
+Upstream-Name: squidguard
+Upstream-Contact: Shalla Secure Services, Gauting, Germany
 Source: http://www.squidguard.org/
 
 
 Files: *
-Copyright: 2006, Shalla Secure Services, Gauting, Germany
+Copyright: 2006-2008, Shalla Secure Services, Gauting, Germany
            1999, Tele Danmark InterNordia, Oslo, Norway
 License: GPL-2
 
@@ -19,7 +19,7 @@ Copyright: 1995, World Wide Web Consortium (MIT, INRIA, KEIO)
 License: W3C-Software
 
 Files: debian/*
-Copyright: 2010, Joachim Wiedorn <ad_debian@joonet.de>
+Copyright: 2010-2011, Joachim Wiedorn <ad_debian@joonet.de>
 License: GPL-2
 
 
