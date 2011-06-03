@@ -3,7 +3,8 @@ Section: web
 Priority: optional
 Maintainer: Joachim Wiedorn <ad_debian@joonet.de>
 Build-Depends: debhelper (>= 7.0.50~), 
- libldap2-dev | libldap-dev, libdb4.8-dev,
+ libldap2-dev | libldap-dev, 
+ libdb-dev | libdb5.1-dev,
  perl, bison, flex
 Standards-Version: 3.9.2
 Vcs-Git: git://anonscm.debian.org/collab-maint/squidguard.git
