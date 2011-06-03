@@ -1,3 +1,9 @@
+squidguard (1.4-4) unstable; urgency=low
+
+  * Add new patch to use Berkeley DB 5.x as well as 4.x. (Closes: #621376)
+
+ -- Joachim Wiedorn <ad_debian@joonet.de>  Tue, 31 May 2011 20:15:26 +0200
+
 squidguard (1.4-3) unstable; urgency=low
 
   * samples:
