@@ -33,7 +33,7 @@ fi
 chown -R proxy.proxy /var/log/squid     1>/dev/null
 chgrp proxy /etc/squid/squidGuard.conf  1>/dev/null
 
-echo "Re-building SquidGuard database..."
+echo "Re-building SquidGuard database (this can take a while)..."
 su - proxy -c "squidGuard -C all"
 echo "Update finished!"
 
