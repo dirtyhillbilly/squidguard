@@ -6,6 +6,7 @@ squidguard (1.4-5) unstable; urgency=low
     - Bump Standards-Version to 3.9.3 (no changes).
     - Remove dependency in -doc package (thanks to piuparts).
   * Fix minor typo in debian/copyright and updating.
+  * Fix: missing content after % sign (sgDiv.c.in). (Closes: #639358)
 
  -- Joachim Wiedorn <ad_debian@joonet.de>  Mon, 02 Apr 2012 20:55:11 +0200
 

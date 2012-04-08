@@ -6,3 +6,4 @@
 06_move-setuserinfo-to-sg-y.patch
 07_update-samples-to-utf8.patch
 08_make-useable-with-bdb-51.patch
+09_missing-content-after-percent-sign.patch
