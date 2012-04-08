@@ -9,7 +9,7 @@ Copyright: 2006-2008, Shalla Secure Services, Gauting, Germany
            1999, Tele Danmark InterNordia, Oslo, Norway
 License: GPL-2
 
-Files: src/HTEscape.h, src/HTParse.c
+Files: src/HTEscape.h src/HTParse.c
 Copyright: 1994-2000, World Wide Web Consortium (MIT, INRIA, KEIO)
            1995, CERN
 License: W3C-Software
@@ -19,7 +19,7 @@ Copyright: 1995, World Wide Web Consortium (MIT, INRIA, KEIO)
 License: W3C-Software
 
 Files: debian/*
-Copyright: 2010-2011, Joachim Wiedorn <ad_debian@joonet.de>
+Copyright: 2010-2012, Joachim Wiedorn <ad_debian@joonet.de>
 License: GPL-2
 
 
