@@ -23,7 +23,7 @@ echo "Double checking directory and file permissions..."
 chown -R proxy.proxy /var/lib/squidguard/db   1>/dev/null
 chmod 2770 /var/lib/squidguard/db          1>/dev/null
 
-LOGDIR=/var/log/squid
+LOGDIR=/var/log/squidguard
 LOGFILE=squidGuard.log
 if test ! -f ${LOGDIR}/${LOGFILE}; then
 	echo "Create logfile for squidguard..."

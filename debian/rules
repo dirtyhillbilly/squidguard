@@ -8,6 +8,6 @@ override_dh_auto_configure:
 	dh_auto_configure -- --with-db=/usr $(shell dpkg-buildflags --export=configure) \
 		--with-ldap=yes --with-ldap-lib=/usr/lib \
 		--with-sg-config=/etc/squid/squidGuard.conf \
-		--with-sg-logdir=/var/log/squid \
+		--with-sg-logdir=/var/log/squidguard \
 		--with-sg-dbhome=/var/lib/squidguard/db
 
