@@ -5,33 +5,48 @@
 
 set -e
 
-CONF="/etc/default/squidguard"
+DEF="/etc/default/squidguard"
+CONF="/etc/squid/squidGuard.conf"
+LOGDIR="/var/log/squidguard"
+LOGOLD="/var/log/squid"
+LOGFILE=squidGuard.log
 
 . /usr/share/debconf/confmodule
 
 db_get squidguard/dbreload
-echo "DBRELOAD=\"$RET\"" > $CONF
+echo "DBRELOAD=\"$RET\"" > ${DEF}
 db_stop
 
-if [ -f "$CONF" ]; then
-    . "$CONF"
+if [ -f "$DEF" ]; then
+    . "$DEF"
 fi
 
 case "$1" in
     configure)
-		if [ "$DBRELOAD" = "true" ]; then
-			update-squidguard
-		else
-			echo "/usr/sbin/update-squidguard not run automatically"
-			echo "Check Debconf settings for squidguard to change."
-		fi
+        # move log dir. in config to new log dir.
+        if [ -f ${CONF} ] && [ $(grep -c "$LOGDIR" ${CONF}) -eq 0 ]; then
+            echo "Move to new directory $LOGDIR for log files."  >&2
+            cp -p ${CONF} ${CONF}_old
+            sed -i "s?${LOGOLD}?${LOGDIR}?" ${CONF}
+        fi
+        # create new log directory
+        test ! -d ${LOGDIR} && install -d -oproxy -gproxy -m750 ${LOGDIR}
+        # set right owner/group of all log files
+        chown -R proxy:proxy ${LOGDIR}
+
+        if [ "$DBRELOAD" = "true" ]; then
+            update-squidguard
+        else
+            echo "/usr/sbin/update-squidguard does not run automatically."  >&2
+            echo "Check Debconf settings for squidguard to change this behaviour."  >&2
+        fi
     ;;
 
     abort-upgrade|abort-remove|abort-deconfigure)
     ;;
 
     *)
-        echo "postinst called with unknown argument \`$1'" >&2
+        echo "postinst called with unknown argument '$1'" >&2
         exit 0
     ;;
 esac

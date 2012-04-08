@@ -5,11 +5,29 @@
 
 set -e
 
-CONF="/etc/default/squidguard"
+DEFCONF="/etc/default/squidguard"
+LOGDIR="/var/log/squidguard"
+LOGOLD="/var/log/squid"
+
+deloldlogs ()
+{
+    # delete files in old log directory
+    if [ -d ${LOGOLD} ]; then
+        test -d ${LOGOLD} && rm -f ${LOGOLD}/squidGuard*
+        rmdir --ignore-fail-on-non-empty ${LOGOLD} 2>/dev/null || true
+    fi
+}
 
 case "$1" in
-    purge|remove|abort-install|disappear)
-        test -f $CONF && rm -f $CONF
+    purge|disappear)
+        test -f ${DEFCONF} && rm -f ${DEFCONF}
+        test -d ${LOGDIR} && rm -rf ${LOGDIR}
+        deloldlogs
+    ;;
+
+    remove|abort-install)
+        test -f ${DEFCONF} && rm -f ${DEFCONF}
+        deloldlogs
     ;;
 
     upgrade|failed-upgrade|abort-upgrade)

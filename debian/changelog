@@ -11,8 +11,10 @@ squidguard (1.4-5) unstable; urgency=low
   * Use /var/log/squidguard for logging. (Closes: #629294)
   * Update script update-squidguard.
   * Save BDB version of .db files in /var/lib/squidguard/dbversion.
+  * debian/postrm: update; purge all log files, too. (Closes: #658206)
+  * debian/postinst: update; check new log directory for use.
 
- -- Joachim Wiedorn <ad_debian@joonet.de>  Mon, 02 Apr 2012 20:55:11 +0200
+ -- Joachim Wiedorn <ad_debian@joonet.de>  Mon, 09 Apr 2012 00:10:25 +0200
 
 squidguard (1.4-4) unstable; urgency=low
 
