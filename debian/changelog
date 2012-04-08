@@ -9,6 +9,8 @@ squidguard (1.4-5) unstable; urgency=low
   * Fix: missing content after % sign (sgDiv.c.in). (Closes: #639358)
   * Fix: enable hardened build flags. (Closes: #656028)
   * Use /var/log/squidguard for logging. (Closes: #629294)
+  * Update script update-squidguard.
+  * Save BDB version of .db files in /var/lib/squidguard/dbversion.
 
  -- Joachim Wiedorn <ad_debian@joonet.de>  Mon, 02 Apr 2012 20:55:11 +0200
 

@@ -3,10 +3,10 @@
 #       update-squidguard  -  db update script for SquidGuard
 #
 #       Copyright 2003 Ivan E. Moore II <rkrusty at debian.org>
-#       Copyright 2010-2011 Joachim Wiedorn <ad_debian at joonet.de>
+#       Copyright 2010-2012 Joachim Wiedorn <ad_debian at joonet.de>
 #       
 #       This program is free software; you can redistribute it and/or modify
-#       it under the terms of the GNU General Public License version 2 as 
+#       it under the terms of the GNU General Public License version 2 as
 #       published by the Free Software Foundation.
 #       
 #       This program is distributed in the hope that it will be useful,
@@ -19,29 +19,60 @@
 #       Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
 #       MA 02110-1301, USA.
 
-echo "Double checking directory and file permissions..."
-chown -R proxy.proxy /var/lib/squidguard/db   1>/dev/null
-chmod 2770 /var/lib/squidguard/db          1>/dev/null
+set -e
 
-LOGDIR=/var/log/squidguard
-LOGFILE=squidGuard.log
-if test ! -f ${LOGDIR}/${LOGFILE}; then
-	echo "Create logfile for squidguard..."
-	test -d ${LOGDIR} || mkdir -p ${LOGDIR}
-	touch ${LOGDIR}/${LOGFILE}
+CONFDIR=/etc/squid
+CONFFILE=squidGuard.conf
+DATADIR=
+DBVFILE=
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#  Check all needed directories
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+# check for new config directory (sg 1.5)
+if test ! -e ${CONFDIR}/${CONFFILE}; then
+  if test -e ${CONFDIR}guard/${CONFFILE}
+  then CONFDIR=${CONFDIR}guard; fi
 fi
-chown -R proxy.proxy /var/log/squid     1>/dev/null
-chgrp proxy /etc/squid/squidGuard.conf  1>/dev/null
 
-echo "Re-building SquidGuard database (this can take a while)..."
+# check config directory
+if test ! -e ${CONFDIR}/${CONFFILE}; then
+  echo "Config file $CONFDIR/$CONFFILE not found - stopping update script!"  >&2
+  exit 0
+fi
+chown proxy:proxy ${CONFDIR}/${CONFFILE}
+chmod 0640 ${CONFDIR}/${CONFFILE}
+
+# read default directories in config file
+DATADIR=$(grep ^dbhome ${CONFDIR}/${CONFFILE} | cut -d' ' -f2)
+DBVFILE=${DATADIR}/../dbversion
+
+# check data directory
+test -d ${DATADIR} || mkdir -p ${DATADIR}
+chown -R proxy:proxy ${DATADIR}
+chmod  2770  ${DATADIR}
+chmod  2770  ${DATADIR}/*
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#  Rebuild full database
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+echo "Rebuild SquidGuard database - this can take a while."  >&2
 su - proxy -c "squidGuard -C all"
-echo "Update finished!"
+# update info file with Berkeley DB version
+squidGuard -v 2>&1 | sed "s/.*DB\ \(.*\):.*/\1/"  >${DBVFILE}
+echo "Rebuild done."  >&2
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#  Reload squid service
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 if [ -e /etc/init.d/squid3 ]; then
-	/etc/init.d/squid3 reload
+  invoke-rc.d squid3 force-reload
 elif [ -e /etc/init.d/squid ]; then
-	/etc/init.d/squid reload
+  invoke-rc.d squid force-reload
 else
-	echo "No init script found for reloading Squid!"
+  echo "No init.d script found for reloading Squid!"  >&2
 fi
 
