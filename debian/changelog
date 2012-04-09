@@ -1,5 +1,6 @@
 squidguard (1.4-5) unstable; urgency=low
 
+  [ Joachim Wiedorn ]
   * debian/control:
     - Move to debhelper (>= 8) and compat level 8.
     - Simplify build dependencies to libldap2-dev and libdb-dev.
@@ -14,6 +15,10 @@ squidguard (1.4-5) unstable; urgency=low
   * debian/postrm: update; purge all log files, too. (Closes: #658206)
   * debian/postinst: update; check new log directory for use.
   * Add some hints into NEWS file.
+  
+  [ Christian Perrier ]
+  * Add DM-Upload-Approved field. Joachim obviously does good work
+    maintaining this package.
 
  -- Joachim Wiedorn <ad_debian@joonet.de>  Mon, 09 Apr 2012 00:10:25 +0200
 
