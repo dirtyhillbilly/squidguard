@@ -1,3 +1,9 @@
+squidguard (1.4-6) unstable; urgency=low
+
+  * Fix chmod error in update-squidguard.
+
+ -- Joachim Wiedorn <ad_debian@joonet.de>  Thu, 12 Apr 2012 21:44:07 +0200
+
 squidguard (1.4-5) unstable; urgency=low
 
   [ Joachim Wiedorn ]

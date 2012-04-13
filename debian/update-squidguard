@@ -51,8 +51,7 @@ DBVFILE=${DATADIR}/../dbversion
 # check data directory
 test -d ${DATADIR} || mkdir -p ${DATADIR}
 chown -R proxy:proxy ${DATADIR}
-chmod  2770  ${DATADIR}
-chmod  2770  ${DATADIR}/*
+chmod -R 2770 ${DATADIR}
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #  Rebuild full database
