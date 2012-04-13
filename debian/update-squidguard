@@ -21,6 +21,16 @@
 
 set -e
 
+# check command options
+if [ $# -gt 0 ]; then
+  while [ -n "$*" ]; do
+    case "$1" in
+  	  -v|--verbose)   VERBOSE=y; VBPAR="-b"  ;;
+    esac
+    shift
+  done
+fi
+
 CONFDIR=/etc/squid
 CONFFILE=squidGuard.conf
 DATADIR=
@@ -36,9 +46,10 @@ if test ! -e ${CONFDIR}/${CONFFILE}; then
   then CONFDIR=${CONFDIR}guard; fi
 fi
 
-# check config directory
+[ ! -z $VERBOSE ] && echo "Check config directory for squidguard."  >&2
+test -d ${CONFDIR} || mkdir -p ${CONFDIR}
 if test ! -e ${CONFDIR}/${CONFFILE}; then
-  echo "Config file $CONFDIR/$CONFFILE not found - stopping update script!"  >&2
+  echo "Config file $CONFDIR/$CONFFILE not found - update script stopped!" >&2
   exit 0
 fi
 chown proxy:proxy ${CONFDIR}/${CONFFILE}
@@ -48,20 +59,22 @@ chmod 0640 ${CONFDIR}/${CONFFILE}
 DATADIR=$(grep ^dbhome ${CONFDIR}/${CONFFILE} | cut -d' ' -f2)
 DBVFILE=${DATADIR}/../dbversion
 
-# check data directory
+[ ! -z $VERBOSE ] && echo "Check data directory for squidguard."    >&2
 test -d ${DATADIR} || mkdir -p ${DATADIR}
 chown -R proxy:proxy ${DATADIR}
 chmod -R 2770 ${DATADIR}
+
+[ ! -z $VERBOSE ] && echo "Check done."  >&2
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #  Rebuild full database
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 echo "Rebuild SquidGuard database - this can take a while."  >&2
-su - proxy -c "squidGuard -C all"
+su - proxy -c "squidGuard ${VBPAR} -C all"
 # update info file with Berkeley DB version
 squidGuard -v 2>&1 | sed "s/.*DB\ \(.*\):.*/\1/"  >${DBVFILE}
-echo "Rebuild done."  >&2
+[ ! -z $VERBOSE ] && echo "Rebuild done."  >&2
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #  Reload squid service
@@ -72,6 +85,6 @@ if [ -e /etc/init.d/squid3 ]; then
 elif [ -e /etc/init.d/squid ]; then
   invoke-rc.d squid force-reload
 else
-  echo "No init.d script found for reloading Squid!"  >&2
+  [ ! -z $VERBOSE ] && echo "No init.d script found for reloading Squid!" >&2
 fi
 
