@@ -1,3 +1,11 @@
+squidguard (1.4-6) unstable; urgency=low
+
+  Because of problems with packages squid2.7 and logrotate the directory
+  for log files has changed to /var/log/squidguard/. Path in config file
+  were updated automatically for default installations.
+
+ -- Joachim Wiedorn <ad_debian@joonet.de>  Thu, 12 Apr 2012 22:34:39 +0200
+
 squidguard (1.4-5) unstable; urgency=low
 
   Because of problems with packages squid2.7 and logrotate the directory

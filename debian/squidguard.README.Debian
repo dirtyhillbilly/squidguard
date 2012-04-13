@@ -59,5 +59,12 @@ in /usr/share/doc/squidguard-doc/.
 Online you can found some infos on http://www.squidguard.org/Doc/ and 
 on http://www.maynidea.com/squidguard/faq-plus.html.
 
+*** update-squidguard ***
 
- -- Joachim Wiedorn <ad_debian@joonet.de>  Mon, 31 May 2010 20:59:00 +0200
+With this script the database for squidguard can be checked and recreated.
+Now this script supports a verbose option for testing:
+
+	update-squidguard --verbose
+
+
+ -- Joachim Wiedorn <ad_debian@joonet.de>  Thu, 12 Apr 2012 21:44:07 +0200
