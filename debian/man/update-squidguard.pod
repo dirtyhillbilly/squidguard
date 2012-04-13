@@ -3,7 +3,7 @@ manpage:  UPDATE-SQUIDGUARD
 section:  1
 title:    SquidGuard documentation
 version:  Version 1.4
-datum:    2010-06-01
+datum:    2012-04-12
 
 =encoding utf8
 
@@ -24,11 +24,17 @@ it will make use of the updated lists.
 
 =head1 OPTIONS
 
-B<update-squidguard> works without any options.
+=over 4
+
+=item B<-v | --verbose>
+
+Show some more information and switch on progress bar when updating database.
+
+=back
 
 =head1 COPYRIGHT and LICENSE
 
-Copyright (C) 2003 Ivan E. Moore II, 2010 Joachim Wiedorn
+Copyright (C) 2003 Ivan E. Moore II, 2010-2012 Joachim Wiedorn
 
 This script is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License version 2 as
