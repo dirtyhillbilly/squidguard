@@ -3,8 +3,10 @@ squidguard (1.5-1) unstable; urgency=low
   * New upstream release.
   * Add option for BDB check in update-squidguard.
   * Add BDB check in postinst script.
+  * Add info about BDB check in README.Debian.
+  * Update manpage of update-squidguard.
 
- -- Joachim Wiedorn <ad_debian@joonet.de>  Sun, 15 Apr 2012 15:55:29 +0200
+ -- Joachim Wiedorn <ad_debian@joonet.de>  Fri, 20 Apr 2012 21:26:44 +0200
 
 squidguard (1.4-6) unstable; urgency=low
 

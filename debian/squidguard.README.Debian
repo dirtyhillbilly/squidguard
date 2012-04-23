@@ -66,5 +66,10 @@ Now this script supports a verbose option for testing:
 
 	update-squidguard --verbose
 
+This script also can check for a BDB version change. Then only if the 
+BDB version has changed the full database files will be recreated. Use:
 
- -- Joachim Wiedorn <ad_debian@joonet.de>  Thu, 12 Apr 2012 21:44:07 +0200
+	update-squidguard --checkdb
+
+
+ -- Joachim Wiedorn <ad_debian@joonet.de>  Fri, 20 Apr 2012 21:26:44 +0200

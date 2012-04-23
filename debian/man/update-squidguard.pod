@@ -2,8 +2,8 @@
 manpage:  UPDATE-SQUIDGUARD
 section:  1
 title:    SquidGuard documentation
-version:  Version 1.4
-datum:    2012-04-12
+version:  Version 1.5
+datum:    2012-04-15
 
 =encoding utf8
 
@@ -29,6 +29,12 @@ it will make use of the updated lists.
 =item B<-v | --verbose>
 
 Show some more information and switch on progress bar when updating database.
+
+=item B<-c | --checkdb>
+
+Check Berkeley DB version and rebuild full database only if Berkeley DB version
+have changed. This option should be used after upgrade of squidguard to reduce
+wasteful wait time.
 
 =back
 
