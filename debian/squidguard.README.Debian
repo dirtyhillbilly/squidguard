@@ -71,5 +71,12 @@ BDB version has changed the full database files will be recreated. Use:
 
 	update-squidguard --checkdb
 
+*** squidguard-data ***
+ 
+This new example script (beta version) downloads and extracts the latest
+database of www.shallalist.de:
 
- -- Joachim Wiedorn <ad_debian@joonet.de>  Fri, 20 Apr 2012 21:26:44 +0200
+	/usr/share/doc/squidguard/examples/squidguard-data
+
+
+ -- Joachim Wiedorn <ad_debian@joonet.de>  Mon, 23 Apr 2012 00:33:50 +0200

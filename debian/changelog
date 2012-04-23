@@ -17,7 +17,9 @@ squidguard (1.5-1) unstable; urgency=low
   * Update all manual pages made for Debian.
   * Add example for destination configuration: dest-snippet.txt.
 
- -- Joachim Wiedorn <ad_debian@joonet.de>  Fri, 20 Apr 2012 21:26:44 +0200
+  * Add script to fetch new database: squidguard-data.
+
+ -- Joachim Wiedorn <ad_debian@joonet.de>  Mon, 23 Apr 2012 01:05:01 +0200
 
 squidguard (1.4-6) unstable; urgency=low
 
