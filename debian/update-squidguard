@@ -32,7 +32,8 @@ if [ $# -gt 0 ]; then
   done
 fi
 
-CONFDIR=/etc/squid
+CONFDIR=/etc/squidguard
+CONFOLD=/etc/squid
 CONFFILE=squidGuard.conf
 DATADIR=
 DBVFILE=
@@ -46,14 +47,14 @@ REBUILD=y
 
 # check for new config directory (sg 1.5)
 if test ! -e ${CONFDIR}/${CONFFILE}; then
-  if test -e ${CONFDIR}guard/${CONFFILE}
-  then CONFDIR=${CONFDIR}guard; fi
+  if test -e ${CONFOLD}/${CONFFILE}
+  then CONFDIR=${CONFOLD}; fi
 fi
 
 [ ! -z $VERBOSE ] && echo "Check config directory for squidguard."  >&2
 test -d ${CONFDIR} || mkdir -p ${CONFDIR}
 if test ! -e ${CONFDIR}/${CONFFILE}; then
-  echo "Config file $CONFDIR/$CONFFILE not found - update script stopped!" >&2
+  echo "No config file $CONFDIR/$CONFFILE found - exiting update-squidguard." >&2
   exit 0
 fi
 chown proxy:proxy ${CONFDIR}/${CONFFILE}
@@ -65,8 +66,12 @@ DBVFILE=${DATADIR}/../dbversion
 
 [ ! -z $VERBOSE ] && echo "Check data directory for squidguard."    >&2
 test -d ${DATADIR} || mkdir -p ${DATADIR}
+if [ $(ls -1 ${DATADIR} | wc -l) -eq 0 ]; then
+  echo "No data files found in ${DATADIR} - exiting update-squidguard." >&2
+  exit 0
+fi
 chown -R proxy:proxy ${DATADIR}
-chmod -R 2770 ${DATADIR}
+find ${DATADIR} -type d | xargs chmod -R 2750
 
 [ ! -z $VERBOSE ] && echo "Check done."  >&2
 

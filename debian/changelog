@@ -10,6 +10,7 @@ squidguard (1.5-1) unstable; urgency=low
 
   * Use always /etc/squidguard directory for config file.
   * Store example config as /etc/squidguard/squidguard.conf.default.
+  * Check for database files and update paths in update-squidguard.
 
  -- Joachim Wiedorn <ad_debian@joonet.de>  Fri, 20 Apr 2012 21:26:44 +0200
 
