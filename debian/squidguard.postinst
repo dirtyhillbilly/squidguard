@@ -5,8 +5,10 @@
 
 set -e
 
-DEF="/etc/default/squidguard"
-CONF="/etc/squid/squidGuard.conf"
+DEFCONF="/etc/default/squidguard"
+CONFDIR="/etc/squidguard"
+CONFOLD="/etc/squid"
+CONFFILE=squidGuard.conf
 LOGDIR="/var/log/squidguard"
 LOGOLD="/var/log/squid"
 LOGFILE=squidGuard.log
@@ -14,32 +16,56 @@ LOGFILE=squidGuard.log
 . /usr/share/debconf/confmodule
 
 db_get squidguard/dbreload
-echo "DBRELOAD=\"$RET\"" > ${DEF}
+echo "DBRELOAD=\"$RET\"" > ${DEFCONF}
 db_stop
 
-if [ -f "$DEF" ]; then
-    . "$DEF"
+if [ -f "$DEFCONF" ]; then
+    . "$DEFCONF"
 fi
 
 case "$1" in
     configure)
-        # move log dir. in config to new log dir.
-        if [ -f ${CONF} ] && [ $(grep -c "$LOGDIR" ${CONF}) -eq 0 ]; then
-            echo "Move to new directory $LOGDIR for log files."  >&2
-            cp -p ${CONF} ${CONF}_old
-            sed -i "s?${LOGOLD}?${LOGDIR}?" ${CONF}
+        # create or move to new config directory (default)
+        test ! -d ${CONFDIR} && install -d -m755 ${CONFDIR}
+
+        if [ ! -f ${CONFDIR}/${CONFFILE} ]; then
+            if [ -f ${CONFOLD}/${CONFFILE} ]; then
+                echo "Move directory ${CONFOLD} to new directory ${CONFDIR}." >&2
+                mv ${CONFOLD}/squidGuard* ${CONFDIR}
+                rmdir --ignore-fail-on-non-empty ${CONFOLD} 2>/dev/null || true
+            else
+                echo "Starting with new config file ${CONFDIR}/${CONFFILE}."  >&2
+                cp ${CONFDIR}/${CONFFILE}.default ${CONFDIR}/${CONFFILE}
+            fi
+            chown proxy:proxy ${CONFDIR}/${CONFFILE} ${CONFDIR}/${CONFFILE}.default
+            chmod 0640 ${CONFDIR}/${CONFFILE} ${CONFDIR}/${CONFFILE}.default
         fi
-        # create new log directory
+        if [ $(grep -c "$LOGDIR" ${CONFDIR}/${CONFFILE}) -eq 0 ]; then
+            echo "Move log file directory to new directory ${LOGDIR}."  >&2
+            cp -p ${CONFDIR}/${CONFFILE} ${CONFDIR}/${CONFFILE}_old
+            sed -i "s?${LOGOLD}?${LOGDIR}?" ${CONFDIR}/${CONFFILE}
+        fi
+
+        # create or move to new log directory (default)
         test ! -d ${LOGDIR} && install -d -oproxy -gproxy -m750 ${LOGDIR}
-        # set right owner/group of all log files
-        chown -R proxy:proxy ${LOGDIR}
+
+        if [ ! -f ${LOGDIR}/${LOGFILE} ]; then
+            if [ -f ${LOGOLD}/${LOGFILE} ]; then
+                mv ${LOGOLD}/squidGuard* ${LOGDIR}
+                rmdir --ignore-fail-on-non-empty ${LOGOLD} 2>/dev/null || true
+            else
+                touch ${LOGDIR}/${LOGFILE}
+            fi
+            chown proxy:proxy ${LOGDIR}/${LOGFILE}
+            chmod 0640 ${LOGDIR}/${LOGFILE}
+        fi
 
         if [ "$DBRELOAD" = "true" ]; then
             # rebuild database only if BDB version has changed
             update-squidguard --checkdb
         else
             echo "/usr/sbin/update-squidguard does not run automatically."  >&2
-            echo "Check Debconf settings for squidguard to change this behaviour."  >&2
+            echo "Check default settings for squidguard to change this behaviour."  >&2
         fi
     ;;
 
