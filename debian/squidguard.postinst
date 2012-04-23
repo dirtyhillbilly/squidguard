@@ -64,14 +64,18 @@ case "$1" in
         if [ -f ${SQUIDCONF} ]; then
           if [ $(grep -c "squid/squidGuard" ${SQUIDCONF}) -gt 0 ]; then
             echo "Update redirector configuration in ${SQUIDCONF}."  >&2
-            sed -i.tmp 's?squid/squidGuard?squidguard/squidGuard?g' ${SQUIDCONF}
+            sed -i_old 's?squid/squidGuard?squidguard/squidGuard?g' ${SQUIDCONF}
+            if [ $(diff ${SQUIDCONF}_old ${SQUIDCONF} | wc -l) -lt 8 ]
+            then rm -f ${SQUIDCONF}_old; fi
           fi
         fi
         SQUIDCONF=/etc/squid3/squid.conf
         if [ -f ${SQUIDCONF} ]; then
           if [ $(grep -c "squid/squidGuard" ${SQUIDCONF}) -gt 0 ]; then
             echo "Update redirector configuration in ${SQUIDCONF}."  >&2
-            sed -i.tmp 's?squid/squidGuard?squidguard/squidGuard?g' ${SQUIDCONF}
+            sed -i_old 's?squid/squidGuard?squidguard/squidGuard?g' ${SQUIDCONF}
+            if [ $(diff ${SQUIDCONF}_old ${SQUIDCONF} | wc -l) -lt 8 ]
+            then rm -f ${SQUIDCONF}_old; fi
           fi
         fi
 
