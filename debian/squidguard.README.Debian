@@ -4,7 +4,7 @@ squidguard for Debian
 *** General ***
  
 To use squidGuard, you must 
- * modify /etc/squid/squidGuard.conf file, 
+ * modify /etc/squidguard/squidGuard.conf file, 
  * setup your blacklist files in /var/lib/squidguard/db
  * modify squid.conf file.
  * execute update-squidguard.
@@ -16,14 +16,14 @@ The following piece in /etc/squid/squid.conf needs to be set:
      ---
      #  TAG: redirect_program
      #
-     redirect_program /usr/bin/squidGuard -c /etc/squid/squidGuard.conf
+     redirect_program /usr/bin/squidGuard -c /etc/squidguard/squidGuard.conf
 
 B) Modify squid.conf of Squid3:
 The following piece in /etc/squid3/squid.conf needs to be set:
      ---
      #  TAG: url_rewrite_program
      #
-     url_rewrite_program /usr/bin/squidGuard -c /etc/squid/squidGuard.conf
+     url_rewrite_program /usr/bin/squidGuard -c /etc/squidguard/squidGuard.conf
 
 *** Contrib ***
 

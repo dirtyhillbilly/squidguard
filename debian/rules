@@ -11,3 +11,7 @@ override_dh_auto_configure:
 		--with-sg-logdir=/var/log/squidguard \
 		--with-sg-dbhome=/var/lib/squidguard/db
 
+override_dh_install: 
+	dh_install
+	chmod a+x debian/squidguard/usr/lib/squidguard/*
+
