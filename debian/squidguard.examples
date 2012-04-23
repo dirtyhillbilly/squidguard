@@ -1,3 +1,4 @@
 samples/*.cgi
 samples/*.conf
-contrib/squidGuardRobot/*
+contrib/squidGuardRobot
+debian/dest-snippet.txt
