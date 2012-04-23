@@ -44,7 +44,7 @@ test1 test2::	test1.conf test2.conf ../src/squidGuard requests
 	@test `wc -l<requests` -eq `wc -l<$@.output`
 	@echo .OK
 	@echo @ac_n@ "Checking the output against the expected..@ac_c@"
-	@cmp -s $@.output $@.expected
+	@-cmp -s $@.output $@.expected
 	@echo .OK
 	@lines=`wc -l<requests`;\
 	awk -F'[()]' '/ squidGuard.+started \([0-9]+\.[0-9]+\)$$/ {start=$$(NF-1)};\
