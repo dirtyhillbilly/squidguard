@@ -6,6 +6,7 @@
 set -e
 
 DEFCONF="/etc/default/squidguard"
+DATADIR="/var/lib/squidguard/db"
 LOGDIR="/var/log/squidguard"
 LOGOLD="/var/log/squid"
 
@@ -20,8 +21,10 @@ deloldlogs ()
 
 case "$1" in
     purge|disappear)
-        test -f ${DEFCONF} && rm -f ${DEFCONF}
-        test -d ${LOGDIR} && rm -rf ${LOGDIR}
+        test -f ${DEFCONF} && rm  -f ${DEFCONF}
+        test -d ${LOGDIR}  && rm -rf ${LOGDIR}
+        test -d ${DATADIR} && rm -rf ${DATADIR}
+        test -f ${DBVERS}  && rm -rf ${DBVERS}
         deloldlogs
     ;;
 
