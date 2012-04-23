@@ -2,14 +2,14 @@ Package:     squidguard
 Subject:     Update links in documentation files
 Author:      Joachim Wiedorn <ad_debian at joonet.de>
 Forwarded:   no
-Last-Update: 2011-04-18
+Last-Update: 2012-04-13
 
 Use current links in doc/configure.txt and doc/extended.txt.
 ---
 
-diff -urN s01/doc/configure.txt s02/doc/configure.txt
---- s01/doc/configure.txt	2009-03-08 14:41:44.000000000 +0100
-+++ s02/doc/configure.txt	2011-04-18 19:22:47.260869126 +0200
+diff -urN s01/doc/configure.txt s04/doc/configure.txt
+--- s01/doc/configure.txt	2007-11-16 17:58:32.000000000 +0100
++++ s04/doc/configure.txt	2012-04-13 23:39:20.828436270 +0200
 @@ -131,13 +131,13 @@
  
  References
@@ -34,9 +34,9 @@ diff -urN s01/doc/configure.txt s02/doc/configure.txt
 +   8. http://www.squidguard.org/Doc/extended.html
 +   9. http://www.squidguard.org/Doc/known_issues.html
 +  10. http://www.squidguard.org/Doc/extended.html
-diff -urN s01/doc/extended.txt s02/doc/extended.txt
---- s01/doc/extended.txt	2009-03-08 14:41:44.000000000 +0100
-+++ s02/doc/extended.txt	2011-04-18 19:22:21.124265155 +0200
+diff -urN s01/doc/extended.txt s04/doc/extended.txt
+--- s01/doc/extended.txt	2007-11-16 17:58:32.000000000 +0100
++++ s04/doc/extended.txt	2012-04-13 23:39:20.828436270 +0200
 @@ -120,16 +120,16 @@
  
  References

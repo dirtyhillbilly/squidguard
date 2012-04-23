@@ -2,7 +2,7 @@ Package:     squidguard
 Subject:     update samples to use default UTF-8
 Author:      Joachim Wiedorn <ad_debian at joonet.de>
 Forwarded:   no
-Last-Update: 2011-05-29
+Last-Update: 2012-04-13
 
 The sample files have charset ISO-8859-15 with some typos.
 But all text files in sources should be UTF-8.
@@ -10,7 +10,7 @@ But all text files in sources should be UTF-8.
 
 diff -urN s06/samples/sample.conf.in s07/samples/sample.conf.in
 --- s06/samples/sample.conf.in	2007-11-16 17:58:32.000000000 +0100
-+++ s07/samples/sample.conf.in	2011-05-29 10:24:17.253271652 +0200
++++ s07/samples/sample.conf.in	2012-04-13 23:55:47.880436363 +0200
 @@ -56,7 +56,7 @@
  	domainlist	dest/adult/domains
  	urllist		dest/adult/urls
@@ -29,9 +29,9 @@ diff -urN s06/samples/sample.conf.in s07/samples/sample.conf.in
  	}
  }
 diff -urN s06/samples/squidGuard.cgi.in s07/samples/squidGuard.cgi.in
---- s06/samples/squidGuard.cgi.in	2008-12-23 22:08:35.000000000 +0100
-+++ s07/samples/squidGuard.cgi.in	2011-05-29 10:24:34.173270571 +0200
-@@ -2,11 +2,11 @@
+--- s06/samples/squidGuard.cgi.in	2011-10-01 20:49:00.000000000 +0200
++++ s07/samples/squidGuard.cgi.in	2012-04-13 23:54:15.472144482 +0200
+@@ -2,7 +2,7 @@
  #
  # Explain to the user that the URL is blocked and by which rule set
  #
@@ -40,26 +40,9 @@ diff -urN s06/samples/squidGuard.cgi.in s07/samples/squidGuard.cgi.in
  # French texts thanks to Fabrice Prigent (fabrice.prigent@univ-tlse1.fr)
  # Dutch texts thanks to Anneke Sicherer-Roetman (sicherer@sichemsoft.nl)
  # German texts thanks to Buergernetz Pfaffenhofen (http://www.bn-paf.de/filter/)
--# Spanish texts thanks to Samuel GarcÃ­a).
-+# Spanish texts thanks to Samuel GarcÃ­a.
- # Rewrite by Christine Kronberg, 2008, to enable an easier integration of
- # other languages.
- #
-@@ -60,9 +60,9 @@
- # (Currently: "en", "fr", "de", "es", "nl", "no")
- @supported   = (
- 		"en (English), ",
--		"fr (Français), ",
-+		"fr (Fran&#231;ais), ",
- 		"de (Deutsch), ",
--		"es (Español), ",
-+		"es (Espa&#241;ol), ",
- 		"nl (Nederlands), ",
- 		"no (Norsk)."
- 	       );
 diff -urN s06/samples/squidGuard-simple.cgi.in s07/samples/squidGuard-simple.cgi.in
 --- s06/samples/squidGuard-simple.cgi.in	2007-11-16 17:58:32.000000000 +0100
-+++ s07/samples/squidGuard-simple.cgi.in	2011-05-29 10:24:55.901269083 +0200
++++ s07/samples/squidGuard-simple.cgi.in	2012-04-13 23:55:47.910579514 +0200
 @@ -2,7 +2,7 @@
  #
  # Sample CGI to explain to the user that the URL is blocked and by which rule set
@@ -71,7 +54,7 @@ diff -urN s06/samples/squidGuard-simple.cgi.in s07/samples/squidGuard-simple.cgi
  
 diff -urN s06/samples/squidGuard-simple-de.cgi.in s07/samples/squidGuard-simple-de.cgi.in
 --- s06/samples/squidGuard-simple-de.cgi.in	2007-11-16 17:58:32.000000000 +0100
-+++ s07/samples/squidGuard-simple-de.cgi.in	2011-05-29 10:25:23.977271763 +0200
++++ s07/samples/squidGuard-simple-de.cgi.in	2012-04-13 23:55:47.943993139 +0200
 @@ -3,7 +3,7 @@
  # Beispel-CGI Skript, um dem Benutzer zu erklaeren, aufgrund welcher Regel
  # eine URL geblockt worden ist.

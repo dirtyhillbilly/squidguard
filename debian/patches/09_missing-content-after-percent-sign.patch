@@ -3,8 +3,8 @@ Subject:     missing content after percent sign
 Author:      Andrew Robert Nicols <andrew.nicols@luns.net.uk>
 Origin:      upstream
 Bug-Debian:  http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=639358
-Forwarded:   not needed
-Last-Update: 2012-04-03
+Forwarded:   no
+Last-Update: 2012-04-13
 
 When using a rewrite rule in squidGuard, if the URL contains a %20 (and
 potentially other encodings), anything after the final % character is not

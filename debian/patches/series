@@ -1,9 +1,7 @@
 01_add-destdir-in-makefile.patch
-02_fix-buffer-overflow-sglog.patch
-03_fix-bypass-problems-with-urls.patch
 04_update-links-in-doc-files.patch
 05_distclean-more-files.patch
 06_move-setuserinfo-to-sg-y.patch
 07_update-samples-to-utf8.patch
-08_make-useable-with-bdb-51.patch
 09_missing-content-after-percent-sign.patch
+10_use-newer-ldapsearch-of-denis.patch

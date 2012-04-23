@@ -2,17 +2,17 @@ Package:     squidguard
 Subject:     move setuserinfo() to sg.y.in
 Author:      Joachim Wiedorn <ad_debian at joonet.de>
 Forwarded:   yes
-Last-Update: 2010-06-25
+Last-Update: 2012-04-13
 
 For real 64 bit architectures we get a segmentation fault.
 It seems the reason is that the function setuserinfo() is
-unknown in sg.y. This patch move the function in sg.y.in
+unknown in sg.y. This patch move the function into sg.y.in
 ---
 
-diff -urN v05/src/sgDiv.c.in v06/src/sgDiv.c.in
---- v05/src/sgDiv.c.in	2010-05-31 23:48:28.000000000 +0200
-+++ v06/src/sgDiv.c.in	2010-06-25 16:57:10.101216185 +0200
-@@ -865,22 +865,3 @@
+diff -urN s05/src/sgDiv.c.in s06/src/sgDiv.c.in
+--- s05/src/sgDiv.c.in	2011-10-01 20:49:00.000000000 +0200
++++ s06/src/sgDiv.c.in	2012-04-13 23:41:22.156438429 +0200
+@@ -865,25 +865,6 @@
    return buf;
  }
  
@@ -35,10 +35,13 @@ diff -urN v05/src/sgDiv.c.in v06/src/sgDiv.c.in
 -  return &uq;
 -}
 -
-diff -urN v05/src/sg.y.in v06/src/sg.y.in
---- v05/src/sg.y.in	2008-05-17 20:25:18.000000000 +0200
-+++ v06/src/sg.y.in	2010-06-25 16:57:09.026513217 +0200
-@@ -389,6 +389,25 @@
+ #ifdef HAVE_LIBLDAP
+ #if __STDC__
+ struct IpInfo *setipinfo()
+diff -urN s05/src/sg.y.in s06/src/sg.y.in
+--- s05/src/sg.y.in	2011-10-01 20:49:00.000000000 +0200
++++ s06/src/sg.y.in	2012-04-13 23:41:22.183458821 +0200
+@@ -406,6 +406,25 @@
    fclose(yyin);
  }
  
