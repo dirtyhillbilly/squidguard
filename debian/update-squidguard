@@ -26,6 +26,7 @@ if [ $# -gt 0 ]; then
   while [ -n "$*" ]; do
     case "$1" in
   	  -v|--verbose)   VERBOSE=y; VBPAR="-b"  ;;
+  	  -c|--checkdb)   CHECKDB=y  ;;
     esac
     shift
   done
@@ -35,6 +36,9 @@ CONFDIR=/etc/squid
 CONFFILE=squidGuard.conf
 DATADIR=
 DBVFILE=
+DB_ACT=
+DB_OLD=
+REBUILD=y
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #  Check all needed directories
@@ -70,11 +74,24 @@ chmod -R 2770 ${DATADIR}
 #  Rebuild full database
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-echo "Rebuild SquidGuard database - this can take a while."  >&2
-su - proxy -c "squidGuard ${VBPAR} -C all"
-# update info file with Berkeley DB version
-squidGuard -v 2>&1 | sed "s/.*DB\ \(.*\):.*/\1/"  >${DBVFILE}
-[ ! -z $VERBOSE ] && echo "Rebuild done."  >&2
+DB_ACT=$(squidGuard -v 2>&1 | sed "s/.*DB\ \(.*\):.*/\1/")
+
+# check BDB version whether rebuild is needed (usually for use in postinst)
+if [ ! -z $CHECKDB ] && [ -f ${DBVFILE} ]; then
+  DB_OLD=$(cat ${DBVFILE})
+  [ "$DB_OLD" = "$DB_ACT" ] && REBUILD=n
+fi
+
+# rebuild database if needed
+if [ $REBUILD = "y" ]; then
+  echo "Rebuild SquidGuard database - this can take a while."  >&2
+  su - proxy -c "squidGuard ${VBPAR} -C all"
+  # update info file with Berkeley DB version
+  echo ${DB_ACT}  >${DBVFILE}
+  [ ! -z $VERBOSE ] && echo "Rebuild done."  >&2
+else
+  echo "Rebuild of SquidGuard database not needed."  >&2
+fi
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #  Reload squid service

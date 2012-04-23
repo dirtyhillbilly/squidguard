@@ -35,7 +35,8 @@ case "$1" in
         chown -R proxy:proxy ${LOGDIR}
 
         if [ "$DBRELOAD" = "true" ]; then
-            update-squidguard
+            # rebuild database only if BDB version has changed
+            update-squidguard --checkdb
         else
             echo "/usr/sbin/update-squidguard does not run automatically."  >&2
             echo "Check Debconf settings for squidguard to change this behaviour."  >&2
