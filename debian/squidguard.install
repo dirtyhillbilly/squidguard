@@ -1,4 +1,4 @@
-debian/squidGuard.conf  		etc/squid/
+debian/squidGuard.conf.default	etc/squidguard/
 debian/update-squidguard		usr/sbin/
 contrib/sgclean/sgclean 		usr/bin/
 contrib/hostbyname/hostbyname	usr/bin/

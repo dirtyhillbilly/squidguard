@@ -8,6 +8,9 @@ squidguard (1.5-1) unstable; urgency=low
   * Delete default database directory in postrm script. (Closes: #668716)
   * Split documentation in 'doc' and 'html' in -doc package.
 
+  * Use always /etc/squidguard directory for config file.
+  * Store example config as /etc/squidguard/squidguard.conf.default.
+
  -- Joachim Wiedorn <ad_debian@joonet.de>  Fri, 20 Apr 2012 21:26:44 +0200
 
 squidguard (1.4-6) unstable; urgency=low
