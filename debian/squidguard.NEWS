@@ -1,3 +1,13 @@
+squidguard (1.5-1) unstable; urgency=low
+
+  Now squidGuard will use /etc/squidguard as config directory.
+  
+  To reduce time of package upgrade the postinst script will recreate
+  the hole database only if the BDB version has changed. This behaviour
+  can also be used by hand with 'update-squidguard --checkdb'.
+
+ -- Joachim Wiedorn <ad_debian@joonet.de>  Fri, 20 Apr 2012 21:26:44 +0200
+
 squidguard (1.4-6) unstable; urgency=low
 
   Because of problems with packages squid2.7 and logrotate the directory
