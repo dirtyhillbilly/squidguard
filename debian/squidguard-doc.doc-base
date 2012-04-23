@@ -5,8 +5,8 @@ Abstract: This document describes the usage of SquidGuard.
 Section: Network/Web Browsing
 
 Format: Text
-Files: /usr/share/doc/squidguard-doc/old-doc/*.txt.gz
+Files: /usr/share/doc/squidguard-doc/doc/*.txt.gz
 
 Format: HTML
-Index: /usr/share/doc/squidguard-doc/old-doc/index.html
-Files: /usr/share/doc/squidguard-doc/old-doc/*.html
+Index: /usr/share/doc/squidguard-doc/html/index.html
+Files: /usr/share/doc/squidguard-doc/html/*.html
