@@ -2,8 +2,8 @@
 manpage:  SGCLEAN
 section:  1
 title:    SquidGuard documentation
-version:  Version 1.4
-datum:    2010-06-01
+version:  Version 1.5
+datum:    2012-04-20
 
 =encoding utf8
 
@@ -20,7 +20,7 @@ B<sgclean> I<configfile>
 B<sgclean> removes redundant entries in domain files and urls files.
 
 B<sgclean> always need explicit the `configfile' i.e. 
-`/etc/squid/squidGuard.conf'.
+`/etc/squidguard/squidGuard.conf'.
 
 Although B<sgclean> makes a backup of the old files, it's always a 
 good idea to make your own backup before running the program.
