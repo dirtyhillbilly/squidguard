@@ -1,3 +1,9 @@
+squidguard (1.5-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Joachim Wiedorn <ad_debian@joonet.de>  Sun, 15 Apr 2012 15:55:29 +0200
+
 squidguard (1.4-6) unstable; urgency=low
 
   * Fix chmod error in update-squidguard.
