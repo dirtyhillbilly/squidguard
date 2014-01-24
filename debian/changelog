@@ -6,6 +6,7 @@ squidguard (1.5-2) unstable; urgency=low
   * debian/control:
     - Bump Standards-Version to 3.9.4 (no changes).
     - Move to debhelper >=9 and compat level 9.
+  * Update debian/rules, because hardening is always enabled.
 
  -- Joachim Wiedorn <ad_debian@joonet.de>  Fri, 24 Jan 2014 21:34:05 +0100
 
