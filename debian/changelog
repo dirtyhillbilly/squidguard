@@ -1,3 +1,9 @@
+squidguard (1.5-2) unstable; urgency=low
+
+  * Fix small typo in update-squidguard.
+
+ -- Joachim Wiedorn <ad_debian@joonet.de>  Fri, 19 Oct 2012 19:02:56 +0200
+
 squidguard (1.5-1) unstable; urgency=low
 
   * New upstream release.

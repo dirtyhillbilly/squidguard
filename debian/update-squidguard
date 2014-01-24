@@ -71,7 +71,7 @@ if [ $(ls -1 ${DATADIR} | wc -l) -eq 0 ]; then
   exit 0
 fi
 chown -R proxy:proxy ${DATADIR}
-find ${DATADIR} -type d | xargs chmod -R 2750
+find ${DATADIR} -type d | xargs chmod 2750
 
 [ ! -z $VERBOSE ] && echo "Check done."  >&2
 

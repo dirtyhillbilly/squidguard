@@ -38,6 +38,7 @@ src bar-clients {
 #
 # DESTINATION CLASSES:
 #
+# [see also in file dest-snippet.txt]
 
 dest good {
 }
