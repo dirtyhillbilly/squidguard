@@ -2,11 +2,10 @@ Source: squidguard
 Section: web
 Priority: optional
 Maintainer: Joachim Wiedorn <ad_debian@joonet.de>
-DM-Upload-Allowed: yes
-Build-Depends: debhelper (>= 8),
+Build-Depends: debhelper (>= 9),
  libldap2-dev, libdb-dev,
  perl, bison, flex
-Standards-Version: 3.9.3
+Standards-Version: 3.9.4
 Vcs-Git: git://anonscm.debian.org/collab-maint/squidguard.git
 Vcs-Browser: http://anonscm.debian.org/gitweb/?p=collab-maint/squidguard.git
 Homepage: http://www.squidguard.org
