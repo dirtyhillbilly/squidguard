@@ -1,7 +1,8 @@
 squidguard (1.5-2) unstable; urgency=low
 
   * Fix small typo in update-squidguard.
-  * Add missing babel files (language files for cgi scripts).
+  * Add new pt_BR debconf translation. Closes: #677796
+  * Add missing babel files (for cgi scripts). Closes: #736478
 
  -- Joachim Wiedorn <ad_debian@joonet.de>  Fri, 19 Oct 2012 19:02:56 +0200
 
