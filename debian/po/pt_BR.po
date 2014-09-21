@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: squidguard 1.5-1\n"
 "Report-Msgid-Bugs-To: squidguard@packages.debian.org\n"
-"POT-Creation-Date: 2010-06-25 17:20+0100\n"
+"POT-Creation-Date: 2014-09-21 00:35+0200\n"
 "PO-Revision-Date: 2012-06-11 00:12-0300\n"
 "Last-Translator: Adriano Rafael Gomes <adrianorg@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <debian-l10n-portuguese@lists.debian."
@@ -20,14 +20,14 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../squidguard.templates:4
+#: ../squidguard.templates:1001
 msgid "Rebuild Squidguard blacklist database during postinst?"
 msgstr ""
 "Reconstruir o banco de dados de lista negra do Squidguard durante o postinst?"
 
 #. Type: boolean
 #. Description
-#: ../squidguard.templates:5
+#: ../squidguard.templates:1001
 msgid ""
 "Rebuilding the blacklist databases is time consuming and under some "
 "circumstances could cause problems.  With the breakout of individual "

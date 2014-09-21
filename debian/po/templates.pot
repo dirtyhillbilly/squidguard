@@ -5,25 +5,26 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: squidguard templates\n"
+"Project-Id-Version: squidguard\n"
 "Report-Msgid-Bugs-To: squidguard@packages.debian.org\n"
-"POT-Creation-Date: 2010-06-25 17:20+0100\n"
+"POT-Creation-Date: 2014-09-21 00:35+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #. Type: boolean
 #. Description
-#: ../squidguard.templates:4
+#: ../squidguard.templates:1001
 msgid "Rebuild Squidguard blacklist database during postinst?"
 msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../squidguard.templates:5
+#: ../squidguard.templates:1001
 msgid ""
 "Rebuilding the blacklist databases is time consuming and under some "
 "circumstances could cause problems.  With the breakout of individual "
