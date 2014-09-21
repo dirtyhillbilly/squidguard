@@ -4,6 +4,7 @@ squidguard (1.5-3) UNRELEASED; urgency=medium
     - Bump Standards-Version to 3.9.5 (no changes).
   * debian/rules:
     - add again hardened flags through dpkg-buildflags. Closes: #760726
+    - Don't install obsolete documentation files.
   * Fix compiler warnings in y.tab.c.bison, sg.y.in (add -DLDAP_DEPRECATED)
   * Fix compiler warnings in sgDiv.c.in (better sprintf formatting).
 

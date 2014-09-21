@@ -4,6 +4,9 @@
 # select all hardening flags
 export DEB_BUILD_MAINT_OPTIONS = hardening=+all
 
+export BASE=debian/squidguard
+export BASEDOC=debian/squidguard-doc
+
 %:
 	dh $@
 
@@ -18,5 +21,8 @@ override_dh_auto_configure:
 
 override_dh_install: 
 	dh_install
-	chmod a+x debian/squidguard/usr/lib/squidguard/*
-
+	chmod a+x $(BASE)/usr/lib/squidguard/*
+	# remove obsolete (old) documentation files
+	rm -f $(BASEDOC)/usr/share/doc/squidguard-doc/html/configuration.html
+	rm -f $(BASEDOC)/usr/share/doc/squidguard-doc/html/faq.html
+	rm -f $(BASEDOC)/usr/share/doc/squidguard-doc/html/installation.html
