@@ -1,0 +1,37 @@
+squidguard time configuration
+-----------------------------
+
+time leisure-time {
+	 weekly * 00:00-08:00 17:00-24:00   # night and evening
+	 weekly fridays 16:00-17:00	        # weekend
+	 date	*.01.01                     # New Year's Day
+	 date	*.05.01                     # Labour Day
+	 date	*.05.17                     # National Day
+	 date	*.12.24 12:00-24:00         # Christmas Eve
+	 date	*.12.25                     # Christmas Day
+	 date	*.12.26                     # Boxing Day
+	 date	1999.03.31 12:00.24:00		# Ash Wednesday
+	 date	1999.04.01-1999.04.05		# Easter
+	 date	2000.04.19 12:00.24:00		# Ash Wednesday y2000
+	 date	2000.04.20-2000.04.24		# Easter y2000
+}
+
+time afterwork {
+    weekly   * 17:00-24:00              # After work
+    weekly   fridays 16:00-17:00        # On friday we close earlier
+    date   *.01.01                      # New Year's Day
+    date   *.12.24 12:00-24:00          # Christmas Eve
+    date   2006.04.14-2006.04.17        # Easter 2006
+    date   2006.05.01                   # Maifeiertag
+}
+
+
+
+
+src admins {
+        ip      192.168.2.0-192.168.2.255
+        ip      172.16.12.0/255.255.255.0
+        ip      10.5.3.1/28
+}
+
+

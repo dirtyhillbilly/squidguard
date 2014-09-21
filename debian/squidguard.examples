@@ -3,3 +3,4 @@ samples/*.conf
 samples/babel.*
 contrib/squidGuardRobot
 debian/dest-snippet.txt
+debian/time-config.txt

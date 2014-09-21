@@ -11,6 +11,7 @@ squidguard (1.5-3) unstable; urgency=medium
   * Fix compiler warnings in y.tab.c.bison, sg.y.in (add -DLDAP_DEPRECATED)
   * Fix compiler warnings in sgDiv.c.in (better sprintf formatting).
   * Add italian translation for debconf. Closes: #761097
+  * Add more information about time configuration (time-config.txt).
 
  -- Joachim Wiedorn <ad_debian@joonet.de>  Sun, 21 Sep 2014 01:32:00 +0200
 
