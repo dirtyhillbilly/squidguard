@@ -4,6 +4,7 @@ squidguard (1.5-3) unstable; urgency=medium
     - Bump Standards-Version to 3.9.5 (no changes).
     - Remove needless build dependency to perl.
     - Perl packages only recommended to squidguard. Closes: #751003
+    - Squid packages only recommended to squidguard. Closes: #756293
   * debian/rules:
     - add again hardened flags through dpkg-buildflags. Closes: #760726
     - Don't install obsolete documentation files.
@@ -11,7 +12,7 @@ squidguard (1.5-3) unstable; urgency=medium
   * Fix compiler warnings in sgDiv.c.in (better sprintf formatting).
   * Add italian translation for debconf. Closes: #761097
 
- -- Joachim Wiedorn <ad_debian@joonet.de>  Sun, 21 Sep 2014 01:18:30 +0200
+ -- Joachim Wiedorn <ad_debian@joonet.de>  Sun, 21 Sep 2014 01:32:00 +0200
 
 squidguard (1.5-2) unstable; urgency=low
 

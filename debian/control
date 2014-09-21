@@ -12,9 +12,8 @@ Homepage: http://www.squidguard.org
 
 Package: squidguard
 Architecture: any
-Depends: squid3 | squid,
- ${shlibs:Depends}, ${misc:Depends}
-Recommends: liburi-perl, libwww-perl
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Recommends: squid3 | squid, liburi-perl, libwww-perl
 Suggests: ldap-utils, squidguard-doc
 Description: filter and redirector plugin for Squid
  squidGuard is a free, flexible and ultra fast filter, redirector
