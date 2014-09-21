@@ -1,0 +1,44 @@
+# Italian translation of squidguard debconf messages
+# Copyright (C) 2014, squidguard package copyright holder
+# This file is distributed under the same license as the squidguard package.
+# Beatrice Torracca <beatricet@libero.it>, 2014.
+msgid ""
+msgstr ""
+"Project-Id-Version: squidguard\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-01-25 14:34+0000\n"
+"PO-Revision-Date: 2014-08-24 19:54+0200\n"
+"Last-Translator: Beatrice Torracca <beatricet@libero.it>\n"
+"Language-Team: Italian <debian-l10n-italian@lists.debian.org>\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Virtaal 0.7.1\n"
+
+#. Type: boolean
+#. Description
+#: ../squidguard.templates:1001
+msgid "Rebuild Squidguard blacklist database during postinst?"
+msgstr ""
+"Rigenerare il database della lista nera di Squidguard durante la fase di "
+"post-installazione?"
+
+#. Type: boolean
+#. Description
+#: ../squidguard.templates:1001
+msgid ""
+"Rebuilding the blacklist databases is time consuming and under some "
+"circumstances could cause problems.  With the breakout of individual "
+"blacklist section packages the time it takes for each package to rebuild "
+"will be extensive.  Also it may not be desireable to rebuild these databases "
+"on production servers.  You can manually perform a rebuild by running /usr/"
+"sbin/update-squidguard."
+msgstr ""
+"La rigenerazione del database della lista nera richiede tempo e in alcune "
+"circostanze può causare problemi. Con la suddivisione in pacchetti singoli "
+"per le sezioni delle liste nere, il tempo necessario per la rigenerazione "
+"per ogni pacchetto sarà lungo. Inoltre può non essere desiderabile "
+"rigenerare questi database nei server di produzione. Si può effettuare una "
+"rigenerazione manuale eseguendo /usr/sbin/update-squidguard."
