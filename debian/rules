@@ -26,3 +26,7 @@ override_dh_install:
 	rm -f $(BASEDOC)/usr/share/doc/squidguard-doc/html/configuration.html
 	rm -f $(BASEDOC)/usr/share/doc/squidguard-doc/html/faq.html
 	rm -f $(BASEDOC)/usr/share/doc/squidguard-doc/html/installation.html
+
+override_dh_clean:
+	dh_clean
+	debconf-updatepo

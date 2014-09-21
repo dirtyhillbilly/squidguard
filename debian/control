@@ -4,7 +4,7 @@ Priority: optional
 Maintainer: Joachim Wiedorn <ad_debian@joonet.de>
 Build-Depends: debhelper (>= 9),
  libldap2-dev, libdb-dev,
- perl, bison, flex
+ po-debconf, bison, flex
 Standards-Version: 3.9.5
 Vcs-Git: git://anonscm.debian.org/collab-maint/squidguard.git
 Vcs-Browser: http://anonscm.debian.org/gitweb/?p=collab-maint/squidguard.git
@@ -12,14 +12,18 @@ Homepage: http://www.squidguard.org
 
 Package: squidguard
 Architecture: any
-Depends: squid3 | squid, liburi-perl, libwww-perl,
- ${shlibs:Depends}, ${perl:Depends}, ${misc:Depends}
+Depends: squid3 | squid,
+ ${shlibs:Depends}, ${misc:Depends}
+Recommends: liburi-perl, libwww-perl
 Suggests: ldap-utils, squidguard-doc
 Description: filter and redirector plugin for Squid
  squidGuard is a free, flexible and ultra fast filter, redirector
  and access controller plugin for squid.  It lets you define multiple
  access rules with different restrictions for different user groups on
  a squid cache.  squidGuard uses squid's standard redirector interface.
+ .
+ Three seldom used contrib scripts need perl support:
+ squidGuardRobot, sgclean, hostbyname
 
 Package: squidguard-doc
 Architecture: all
