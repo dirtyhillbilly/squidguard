@@ -5,7 +5,7 @@ Maintainer: Joachim Wiedorn <ad_debian@joonet.de>
 Build-Depends: debhelper (>= 9),
  libldap2-dev, libdb-dev,
  perl, bison, flex
-Standards-Version: 3.9.4
+Standards-Version: 3.9.5
 Vcs-Git: git://anonscm.debian.org/collab-maint/squidguard.git
 Vcs-Browser: http://anonscm.debian.org/gitweb/?p=collab-maint/squidguard.git
 Homepage: http://www.squidguard.org

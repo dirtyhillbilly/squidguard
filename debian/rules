@@ -1,11 +1,16 @@
 #!/usr/bin/make -f
 # -*- makefile -*-
 
+# select all hardening flags
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+
 %:
 	dh $@
 
 override_dh_auto_configure: 
-	dh_auto_configure  --  --with-db=/usr \
+	dh_auto_configure  --    \
+		$(shell dpkg-buildflags --export=configure) \
+		--with-db=/usr \
 		--with-ldap=yes --with-ldap-lib=/usr/lib \
 		--with-sg-config=/etc/squidguard/squidGuard.conf \
 		--with-sg-logdir=/var/log/squidguard \
