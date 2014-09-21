@@ -1,0 +1,22 @@
+Package:     squidguard
+Subject:     fix time printing format
+Author:      Joachim Wiedorn <ad_debian at joonet.de>
+Forwarded:   no
+Last-Update: 2014-09-20
+
+Some values come with time_t format. Changed print formatting
+to remove comiling warnings.
+---
+
+diff -urN s12/src/sgDiv.c.in s13/src/sgDiv.c.in
+--- s12/src/sgDiv.c.in	2012-04-13 23:59:10.000000000 +0200
++++ s13/src/sgDiv.c.in	2014-09-20 23:35:32.254047560 +0200
+@@ -692,7 +692,7 @@
+        struct UserInfo *userquota;
+ 	if(defined(s->userDb, req->ident, (char **) &userquota) == 1){
+ 	  char qbuf[150];
+-	  sprintf(qbuf, "%d-%d-%d-%d-%d-%d", s->userquota.renew, s->userquota.seconds, userquota->status, userquota->time, userquota->last, userquota->consumed);
++	  sprintf(qbuf, "%d-%jd-%d-%jd-%jd-%d", s->userquota.renew, s->userquota.seconds, userquota->status, userquota->time, userquota->last, userquota->consumed);
+ 	  strcat(buf, qbuf);
+ 	} else {
+ 	  strcat(buf, "noquota");

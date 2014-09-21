@@ -1,0 +1,40 @@
+Package:     squidguard
+Subject:     enable ldap deprecated
+Author:      Joachim Wiedorn <ad_debian at joonet.de>
+Forwarded:   no
+Last-Update: 2014-09-20
+
+Some older ldap functions are deprecated. With this flag some
+compiler warnings / errors should go.
+---
+
+diff -urN s11/configure s12/configure
+--- s11/configure	2011-10-01 20:49:00.000000000 +0200
++++ s12/configure	2014-09-20 22:15:18.818239736 +0200
+@@ -3653,8 +3653,9 @@
+ 
+ fi
+ 
+-CFLAGS="$CFLAGS $db_inc $ldap_inc"
+-CXXFLAGS="$CXXFLAGS $db_inc $ldap_inc"
++oldldap="-DLDAP_DEPRECATED"
++CFLAGS="$CFLAGS $oldldap $db_inc $ldap_inc"
++CXXFLAGS="$CXXFLAGS $oldldap $db_inc $ldap_inc"
+ CPPFLAGS="$CPPFLAGS $db_inc $ldap_inc"
+ LDFLAGS="$LDFLAGS $db_lib $ldap_lib"
+ 
+diff -urN s11/configure.in s12/configure.in
+--- s11/configure.in	2011-10-01 20:49:00.000000000 +0200
++++ s12/configure.in	2014-09-20 22:15:20.114259013 +0200
+@@ -130,8 +130,9 @@
+ 	AC_DEFINE(ACDBHOME, 1, [Defined if you supply --with-sg-dbhome])
+ fi
+ 
+-CFLAGS="$CFLAGS $db_inc $ldap_inc"
+-CXXFLAGS="$CXXFLAGS $db_inc $ldap_inc"
++oldldap="-DLDAP_DEPRECATED"
++CFLAGS="$CFLAGS $oldldap $db_inc $ldap_inc"
++CXXFLAGS="$CXXFLAGS $oldldap $db_inc $ldap_inc"
+ CPPFLAGS="$CPPFLAGS $db_inc $ldap_inc"
+ LDFLAGS="$LDFLAGS $db_lib $ldap_lib"
+ 
