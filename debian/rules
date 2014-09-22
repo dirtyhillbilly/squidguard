@@ -13,7 +13,7 @@ export BASEDOC=debian/squidguard-doc
 override_dh_auto_configure: 
 	dh_auto_configure  --    \
 		$(shell dpkg-buildflags --export=configure) \
-		--with-db=/usr \
+		--with-db=/usr --with-nolog=yes \
 		--with-ldap=yes --with-ldap-lib=/usr/lib \
 		--with-sg-config=/etc/squidguard/squidGuard.conf \
 		--with-sg-logdir=/var/log/squidguard \

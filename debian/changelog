@@ -8,6 +8,7 @@ squidguard (1.5-3) unstable; urgency=medium
   * debian/rules:
     - add again hardened flags through dpkg-buildflags. Closes: #760726
     - Don't install obsolete documentation files.
+    - Add --with-nolog=yes to disable debug logging (thanks to J. Redondo).
   * Fix compiler warnings in y.tab.c.bison, sg.y.in (add -DLDAP_DEPRECATED)
   * Fix compiler warnings in sgDiv.c.in (better sprintf formatting).
   * Add italian translation for debconf. Closes: #761097
