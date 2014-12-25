@@ -1,3 +1,12 @@
+squidguard (1.5-4) unstable; urgency=medium
+
+  * Fix for working with squid 3.4 and higher. Closes: #772831
+  * Update dependency to squid3 (>= 3.4.0) because the new patch
+      let squidguard only support newer versions of squid3 and
+      don't support squid 2.7 anymore.
+
+ -- Joachim Wiedorn <joodebian@joonet.de>  Thu, 25 Dec 2014 20:21:03 +0100
+
 squidguard (1.5-3) unstable; urgency=medium
 
   * debian/control:
