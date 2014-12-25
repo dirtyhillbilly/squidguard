@@ -8,3 +8,4 @@
 11_fix-for-clean-target-without-syslog.patch
 12_enable-ldap-deprecated.patch
 13_fix-time-printing-format.patch
+14_fix-working-with-squid-3-4.patch
