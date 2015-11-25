@@ -47,7 +47,11 @@ case "$1" in
         fi
 
         # create or move to new log directory (default)
-        test ! -d ${LOGDIR} && install -d -oproxy -gproxy -m750 ${LOGDIR}
+        if test ! -d ${LOGDIR}; then
+            install -d -oproxy -gproxy -m755 ${LOGDIR}
+        else
+            chmod 755 ${LOGDIR}
+        fi
 
         if [ ! -f ${LOGDIR}/${LOGFILE} ]; then
             if [ -f ${LOGOLD}/${LOGFILE} ]; then
