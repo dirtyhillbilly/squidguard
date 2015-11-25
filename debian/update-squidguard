@@ -3,7 +3,7 @@
 #       update-squidguard  -  db update script for SquidGuard
 #
 #       Copyright 2003 Ivan E. Moore II <rkrusty at debian.org>
-#       Copyright 2010-2014 Joachim Wiedorn <ad_debian at joonet.de>
+#       Copyright 2010-2015 Joachim Wiedorn <ad_debian at joonet.de>
 #       
 #       This program is free software; you can redistribute it and/or modify
 #       it under the terms of the GNU General Public License version 2 as
@@ -91,7 +91,7 @@ fi
 # rebuild database if needed
 if [ $REBUILD = "y" ]; then
   echo "Rebuild SquidGuard database - this can take a while."  >&2
-  su - proxy -c "squidGuard ${VBPAR} -C all"
+  su -s /bin/sh -c "squidGuard ${VBPAR} -C all" - proxy
   # update info file with Berkeley DB version
   echo ${DB_ACT}  >${DBVFILE}
   [ ! -z $VERBOSE ] && echo "Rebuild done."  >&2
