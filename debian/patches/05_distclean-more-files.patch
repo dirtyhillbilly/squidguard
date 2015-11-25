@@ -1,10 +1,10 @@
 Package:     squidguard
 Subject:     distclean more files
-Author:      Joachim Wiedorn <ad_debian at joonet.de>
+Author:      Joachim Wiedorn <joodebian at joonet.de>
 Forwarded:   no
 Last-Update: 2012-04-13
 
-Some distclean rules do not delete all files, which will be created 
+Some distclean rules do not delete all files, which will be created
 while configure or compiling.
 ---
 

@@ -4,7 +4,7 @@ Author:      Joachim Wiedorn <joodebian at joonet.de>
 Origin:      other, http://bugs.squid-cache.org/show_bug.cgi?id=3978
 Bug-Debian:  https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=772831
 Forwarded:   yes
-Last-Update: 2014-12-22
+Last-Update: 2015-11-25
 
 Incorrectly use of Squid helper protocol (old squid-2.5 protocol).
 This bugfix let it work together with squid3 v3.4 and higher. Pay
@@ -121,7 +121,7 @@ diff -urN s13/src/main.c.in s14/src/main.c.in
 diff -urN s13/src/sgDiv.c s14/src/sgDiv.c
 --- s13/src/sgDiv.c	2011-10-01 20:49:00.000000000 +0200
 +++ s14/src/sgDiv.c	2014-12-11 18:19:26.775347885 +0100
-@@ -782,7 +782,7 @@
+@@ -784,7 +784,7 @@
    }
    sgLogError("ERROR: Going into emergency mode");
    while(fgets(buf, MAX_BUF, stdin) != NULL){

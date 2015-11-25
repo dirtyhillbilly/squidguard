@@ -1,6 +1,6 @@
 Package:     squidguard
 Subject:     use newer ldapsearch (thanks to Denis Bonnenfant)
-Author:      Joachim Wiedorn <ad_debian@joonet.de>
+Author:      Joachim Wiedorn <joodebian@joonet.de>
 Origin:      upstream
 Forwarded:   no
 Last-Update: 2012-04-13

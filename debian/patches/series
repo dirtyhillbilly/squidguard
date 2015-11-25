@@ -1,4 +1,5 @@
 01_add-destdir-in-makefile.patch
+02_add-upstream-fix-to-sgDiv.patch
 04_update-links-in-doc-files.patch
 05_distclean-more-files.patch
 06_move-setuserinfo-to-sg-y.patch

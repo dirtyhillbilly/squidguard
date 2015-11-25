@@ -1,6 +1,6 @@
 Package:     squidguard
 Subject:     Fix for clean target without syslog
-Author:      Joachim Wiedorn <ad_debian@joonet.de>
+Author:      Joachim Wiedorn <joodebian@joonet.de>
 Forwarded:   no
 Last-Update: 2012-04-22
 
