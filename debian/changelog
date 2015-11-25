@@ -1,4 +1,4 @@
-squidguard (1.5-5) UNRELEASED; urgency=medium
+squidguard (1.5-5) unstable; urgency=medium
 
   * Update or fix existing patches.
   * Add some new patches:
@@ -10,8 +10,9 @@ squidguard (1.5-5) UNRELEASED; urgency=medium
       Change permissions of /var/log/squidguard to 755.
   * Bugfix for debian/rules:
       Check existence of install directories. Closes: #806111
+  * Bump to Standards-Version 3.9.6 (no changes).
 
- -- Joachim Wiedorn <joodebian@joonet.de>  Wed, 25 Nov 2015 00:35:26 +0100
+ -- Joachim Wiedorn <joodebian@joonet.de>  Wed, 25 Nov 2015 03:06:00 +0100
 
 squidguard (1.5-4) unstable; urgency=medium
 
