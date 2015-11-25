@@ -1,0 +1,46 @@
+Package:     squidguard
+Subject:     XSS security bugfix
+Author:      Joachim Wiedorn <joodebian at joonet.de>
+Forwarded:   no
+Last-Update: 2015-11-25
+
+Convert special characters in html code to fix XSS security problems.
+---
+
+diff -urN s15/samples/squidGuard.cgi.in s16/samples/squidGuard.cgi.in
+--- s15/samples/squidGuard.cgi.in	2015-11-25 00:04:26.330093552 +0100
++++ s16/samples/squidGuard.cgi.in	2015-11-25 00:17:40.727661997 +0100
+@@ -319,6 +319,9 @@
+    showinaddr($targetgroup,$protocol,$address,$port,$path);
+ }
+ 
++$url =~ s/</&lt;/g ;
++$url =~ s/>/&gt;/g ;
++
+ status("403 Forbidden");
+ expires(0);
+ print "Content-type: text/html\n\n";
+diff -urN s15/samples/squidGuard-simple.cgi.in s16/samples/squidGuard-simple.cgi.in
+--- s15/samples/squidGuard-simple.cgi.in	2015-11-25 00:04:26.330093552 +0100
++++ s16/samples/squidGuard-simple.cgi.in	2015-11-25 00:17:40.727661997 +0100
+@@ -47,6 +47,8 @@
+   }
+   close(GIF)
+ } else {
++  $url =~ s/</&lt;/g ;
++  $url =~ s/>/&gt;/g ;
+   print "Content-type: text/html\n";
+   ($sec,$min,$hour,$mday,$mon,$year,$wday,$yday,$isdst) = gmtime($time);
+   printf "Expires: %s, %02d-%s-%02d %02d:%02d:%02d GMT\n\n", $day[$wday],$mday,$month[$mon],$year,$hour,$min,$sec;
+diff -urN s15/samples/squidGuard-simple-de.cgi.in s16/samples/squidGuard-simple-de.cgi.in
+--- s15/samples/squidGuard-simple-de.cgi.in	2015-11-25 00:04:26.330093552 +0100
++++ s16/samples/squidGuard-simple-de.cgi.in	2015-11-25 00:17:40.727661997 +0100
+@@ -47,6 +47,8 @@
+   }
+   close(GIF)
+ } else {
++  $url =~ s/</&lt;/g ;
++  $url =~ s/>/&gt;/g ;
+   print "Content-type: text/html\n";
+   ($sec,$min,$hour,$mday,$mon,$year,$wday,$yday,$isdst) = gmtime($time);
+   printf "Expires: %s, %02d-%s-%02d %02d:%02d:%02d GMT\n\n", $day[$wday],$mday,$month[$mon],$year,$hour,$min,$sec;
