@@ -1,3 +1,12 @@
+squidguard (1.5-5) UNRELEASED; urgency=medium
+
+  * Update or fix existing patches.
+  * Add some new patches:
+    - Adding IPv6 support (patch of upstream).
+    - Fix XSS security bug in cgi scripts.
+
+ -- Joachim Wiedorn <joodebian@joonet.de>  Wed, 25 Nov 2015 00:35:26 +0100
+
 squidguard (1.5-4) unstable; urgency=medium
 
   * Fix for working with squid 3.4 and higher. Closes: #772831
