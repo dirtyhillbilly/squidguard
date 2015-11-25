@@ -4,6 +4,12 @@ squidguard (1.5-5) UNRELEASED; urgency=medium
   * Add some new patches:
     - Adding IPv6 support (patch of upstream).
     - Fix XSS security bug in cgi scripts.
+  * Bugfix for script update-squidguard: Fix problem with
+      default shell of user 'proxy'. Closes: #793196, #775938
+  * Optimize postinst script:
+      Change permissions of /var/log/squidguard to 755.
+  * Bugfix for debian/rules:
+      Check existence of install directories. Closes: #806111
 
  -- Joachim Wiedorn <joodebian@joonet.de>  Wed, 25 Nov 2015 00:35:26 +0100
 
