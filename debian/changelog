@@ -2,6 +2,10 @@ squidguard (1.5-6) UNRELEASED; urgency=medium
 
   * README.Debian: 
     - Remove obsolete web address. Closes: #816212
+  * update-squidguard:
+    - Check path /etc/squid before /etc/squid3. Closes: #870699
+  * debian/control:
+    - Update recommends field from squid3 to squid. Closes: #817134
 
  -- Joachim Wiedorn <joodebian@joonet.de>  Wed, 30 Aug 2017 23:55:57 +0200
 
