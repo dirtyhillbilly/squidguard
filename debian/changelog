@@ -7,6 +7,8 @@ squidguard (1.5-6) unstable; urgency=medium
   * debian/control:
     - Update recommends field from squid3 to squid. Closes: #817134
     - Bump to Standards-Version 4.1.0 (no changes).
+  * debian/compat:
+    - Finally move to compat level 9.
 
  -- Joachim Wiedorn <joodebian@joonet.de>  Wed, 30 Aug 2017 23:55:57 +0200
 
