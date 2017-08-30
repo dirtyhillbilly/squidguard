@@ -12,3 +12,4 @@
 14_fix-working-with-squid-3-4.patch
 15_add-ipv6-support.patch
 16_XSS-security-bugfix.patch
+17_add-include-htescape-h.patch
