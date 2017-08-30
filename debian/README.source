@@ -18,4 +18,4 @@ The upstream release file were created in this way:
   5. Create the source archive, usable for packaging:
      tar -czf squidguard_1.5.orig.tar.gz squidguard-1.5
 
- -- Joachim Wiedorn <ad_debian@joonet.de>  Fri, 20 Apr 2012 21:26:44 +0200
+ -- Joachim Wiedorn <joodebian@joonet.de>  Mon, 30 Aug 2017 23:54:00 +0200

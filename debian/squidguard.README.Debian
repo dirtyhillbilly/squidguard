@@ -54,10 +54,8 @@ You also need to make sure all your blacklist files are owned by the
 *** Documentation ***
 
 More (older) documentation can be found in the package squidguard-doc
-in /usr/share/doc/squidguard-doc/.
-
-Online you can found some infos on http://www.squidguard.org/Doc/ and 
-on http://www.maynidea.com/squidguard/faq-plus.html.
+in the path /usr/share/doc/squidguard-doc/ and also on the web on
+http://www.squidguard.org/Doc/.
 
 *** update-squidguard ***
 
@@ -79,4 +77,4 @@ database of www.shallalist.de:
 	/usr/share/doc/squidguard/examples/squidguard-data
 
 
- -- Joachim Wiedorn <ad_debian@joonet.de>  Mon, 23 Apr 2012 00:33:50 +0200
+ -- Joachim Wiedorn <joodebian@joonet.de>  Mon, 30 Aug 2017 23:54:00 +0200
