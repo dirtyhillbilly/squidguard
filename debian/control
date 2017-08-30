@@ -6,8 +6,8 @@ Build-Depends: debhelper (>= 9),
  libldap2-dev, libdb-dev,
  po-debconf, bison, flex
 Standards-Version: 4.1.0
-Vcs-Git: git://anonscm.debian.org/collab-maint/squidguard.git
-Vcs-Browser: http://anonscm.debian.org/gitweb/?p=collab-maint/squidguard.git
+Vcs-Git: https://anonscm.debian.org/git/collab-maint/squidguard.git
+Vcs-Browser: https://anonscm.debian.org/cgit/collab-maint/squidguard.git
 Homepage: http://www.squidguard.org
 
 Package: squidguard
