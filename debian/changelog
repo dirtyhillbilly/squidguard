@@ -1,3 +1,14 @@
+squidguard (1.5-7) unstable; urgency=medium
+
+  * Bugfix for update-squidguard: Fix problem with tabs
+      in squidguard.conf (line of dbhome). Closes: #843558
+  * debian/control:
+    - Bump to Standards-Version 4.3.0 (no changes).
+    - Move to debhelper 10 and compat level 10.
+    - Update Vcs links to salsa.debian.org.
+
+ -- Joachim Wiedorn <joodebian@joonet.de>  Thu, 03 Jan 2019 00:25:00 +0100
+
 squidguard (1.5-6) unstable; urgency=medium
 
   * README.Debian: 
