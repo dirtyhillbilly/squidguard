@@ -16,4 +16,4 @@
   (GPL) along with this program.
 */
 
-#define VERSION "1.5"
+#define VERSION "1.6.0"

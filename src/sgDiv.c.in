@@ -18,6 +18,7 @@
 
 #include "sg.h"
 #include "sgEx.h"
+#include "HTEscape.h"
 
 /* #define METEST 8; */
 
@@ -211,7 +212,7 @@ int parseLine(line, s)
     *(s->surl + (e - p)) = '\0';
   }
   //strcpy(s->surl,s->domain);
-  if(strspn(s->domain,".0123456789") == strlen(s->domain))
+  if(strspn(s->domain,":.0123456789") == strlen(s->domain))
     s->dot = 1;
   if(d != NULL)
     strcat(s->surl,d);
@@ -692,7 +693,7 @@ char *sgParseRedirect(redirect, req, acl, aclpass)
        struct UserInfo *userquota;
 	if(defined(s->userDb, req->ident, (char **) &userquota) == 1){
 	  char qbuf[150];
-	  sprintf(qbuf, "%d-%d-%d-%d-%d-%d", s->userquota.renew, s->userquota.seconds, userquota->status, userquota->time, userquota->last, userquota->consumed);
+	  sprintf(qbuf, "%d-%jd-%d-%jd-%jd-%d", s->userquota.renew, (intmax_t)s->userquota.seconds, userquota->status, (intmax_t)userquota->time, (intmax_t)userquota->last, userquota->consumed);
 	  strcat(buf, qbuf);
 	} else {
 	  strcat(buf, "noquota");
@@ -757,8 +758,10 @@ char *sgParseRedirect(redirect, req, acl, aclpass)
   }
   if(buf[0] == '\0')
     q = redirect;
-  else 
+  else {
+    strncat(buf, q, p - q);
     q = buf;
+  }
   return q;
 }
 
@@ -782,7 +785,7 @@ void sgEmergency ()
   }
   sgLogError("ERROR: Going into emergency mode");
   while(fgets(buf, MAX_BUF, stdin) != NULL){
-    puts("");
+    puts("ERR");
     fflush(stdout);
   }
   sgLogError("ERROR: Ending emergency mode, stdin empty");
@@ -863,25 +866,6 @@ char *niso(t)
   sprintf(buf,"%04d-%02d-%02d %02d:%02d:%02d",lc->tm_year + 1900,lc->tm_mon + 1,
 	  lc->tm_mday, lc->tm_hour,lc->tm_min,lc->tm_sec);
   return buf;
-}
-
-#if __STDC__
-struct UserInfo *setuserinfo()
-#else
-struct UserInfo *setuserinfo()
-#endif
-{
-  static struct UserInfo uq;
-  uq.status = 0; 
-  uq.time = 0; 
-  uq.consumed = 0; 
-  uq.last = 0; 
-#ifdef HAVE_LIBLDAP
-  uq.ldapuser = 0;
-  uq.found = 0;
-  uq.cachetime = 0;
-#endif
-  return &uq;
 }
 
 #ifdef HAVE_LIBLDAP

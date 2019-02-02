@@ -2,7 +2,7 @@
 #
 # Explain to the user that the URL is blocked and by which rule set
 #
-# Original by Pål Baltzersen 1999 (pal.baltzersen@ost.eltele.no)
+# Original by PÃ¥l Baltzersen 1999 (pal.baltzersen@ost.eltele.no)
 # French texts thanks to Fabrice Prigent (fabrice.prigent@univ-tlse1.fr)
 # Dutch texts thanks to Anneke Sicherer-Roetman (sicherer@sichemsoft.nl)
 # German texts thanks to Buergernetz Pfaffenhofen (http://www.bn-paf.de/filter/)
@@ -318,6 +318,9 @@ if ($url =~ /\.(gif|jpg|jpeg|png|mp3|mpg|mpeg|avi|mov)$/i) {
 if ($targetgroup eq "in-addr") {
    showinaddr($targetgroup,$protocol,$address,$port,$path);
 }
+
+$url =~ s/</&lt;/g ;
+$url =~ s/>/&gt;/g ;
 
 status("403 Forbidden");
 expires(0);

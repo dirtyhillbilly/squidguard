@@ -2,7 +2,7 @@ dnl
 dnl Autoconf configuration for squidGuard
 dnl
 
-AC_INIT(src/main.c)
+AC_INIT(src/main.c.in)
 AC_CONFIG_HEADER(src/config.h)
 
 dnl
@@ -42,7 +42,7 @@ db_inc=-I$dbprefix/BerkeleyDB/include
 ldap_lib=-L$ldapprefix/lib
 ldap_inc=-I$ldapprefix/include
 
-AC_DEFUN(FAIL_MESSAGE,[
+AC_DEFUN([FAIL_MESSAGE],[
    echo
    echo
    echo "**********************************************"
@@ -130,8 +130,9 @@ if test -n "$sg_dbhome"; then
 	AC_DEFINE(ACDBHOME, 1, [Defined if you supply --with-sg-dbhome])
 fi
 
-CFLAGS="$CFLAGS $db_inc $ldap_inc"
-CXXFLAGS="$CXXFLAGS $db_inc $ldap_inc"
+oldldap="-DLDAP_DEPRECATED"
+CFLAGS="$CFLAGS $oldldap $db_inc $ldap_inc"
+CXXFLAGS="$CXXFLAGS $oldldap $db_inc $ldap_inc"
 CPPFLAGS="$CPPFLAGS $db_inc $ldap_inc"
 LDFLAGS="$LDFLAGS $db_lib $ldap_lib"
 
@@ -229,24 +230,22 @@ else
 	YACCLINE2=""
 fi
 if test "$with_ldap" = "yes"; then
-       AC_DEFINE(HAVE_LIBLDAP, 1, [Define if LDAP support should be compiled])
-       AC_RUN_IFELSE([
-
-       #include <ldap.h>
-       int main()
-       {
-               LDAP *p;
-               p = ldap_init("localhost", LDAP_PORT);
-               exit(0);
-       }
-       ],,[
-               echo
-               echo "Unable to link to LDAP library."
-               echo
-               exit 1
-       ],[
-               ac_status=0
-       ])
+    AC_DEFINE(HAVE_LIBLDAP, 1, [Define if LDAP support should be compiled])
+    AC_RUN_IFELSE([AC_LANG_SOURCE([[
+        #include <ldap.h>
+        int main()
+        {
+           LDAP *p;
+           p = ldap_init("localhost", LDAP_PORT);
+           exit(0);
+        }
+        ]])],,[
+           echo
+           echo "Unable to link to LDAP library."
+           echo
+           exit 1
+        ],[ac_status=0]
+    )
 fi
 
 dnl
@@ -341,26 +340,30 @@ AC_CHECK_LIB(pthread,pthread_create,,[
 
 dnl Check DB
 LIBS="$LIBS -ldb"
-AC_RUN_IFELSE([
-	#include <db.h>
-	int main() 
-	{
-		int major, minor, patch;
-		float ver;
+AC_RUN_IFELSE([AC_LANG_SOURCE([[
+    #include <db.h>
+    int main() 
+    {
+        int major, minor, patch;
+        float ver;
 #if DB_VERSION_MAJOR
-                major = DB_VERSION_MAJOR;
-                minor = DB_VERSION_MINOR;
-                patch = DB_VERSION_PATCH;
+        major = DB_VERSION_MAJOR;
+        minor = DB_VERSION_MINOR;
+        patch = DB_VERSION_PATCH;
 #else
-                db_version(&major, &minor, &patch);
+        db_version(&major, &minor, &patch);
 #endif
-		ver = major + ((float) minor / 1000);
-                if (ver >= 2.006)
+        ver = major + ((float) minor / 1000);
+        if (ver >= 2.006)
 			exit (0);
 		exit (1);
 	}	
-	], db_ok_version=yes, db_ok_version=no, db_ok_version=yes)
-
+	]])],
+	[db_ok_version=yes],
+    [db_ok_version=no],
+    [db_ok_version=yes]
+)
+       
 if test $db_ok_version = no; then
 	echo
 	echo "** The Berkley DB library version 2.6.4 or newer"
@@ -372,25 +375,29 @@ if test $db_ok_version = no; then
 	exit 1;
 fi
 
-AC_RUN_IFELSE([
-	#include <db.h>
-	int main() 
-	{
-		int major, minor, patch;
-		float ver;
+AC_RUN_IFELSE([AC_LANG_SOURCE([[
+    #include <db.h>
+    int main() 
+    {
+        int major, minor, patch;
+        float ver;
 #if DB_VERSION_MAJOR
-                major = DB_VERSION_MAJOR;
-                minor = DB_VERSION_MINOR;
-                patch = DB_VERSION_PATCH;
+        major = DB_VERSION_MAJOR;
+        minor = DB_VERSION_MINOR;
+        patch = DB_VERSION_PATCH;
 #else
-                db_version(&major, &minor, &patch);
+        db_version(&major, &minor, &patch);
 #endif
-		ver = major + ((float) minor / 1000);
-                if (ver > 2.007 && ver < 3.002)
+        ver = major + ((float) minor / 1000);
+        if (ver > 2.007 && ver < 3.002)
 			exit (1);
 		exit (0);
 	}	
-	], db_ok_version=yes, db_ok_version=no, db_ok_version=yes)
+	]])],
+	[db_ok_version=yes],
+    [db_ok_version=no],
+    [db_ok_version=yes]
+)
 
 if test $db_ok_version = no; then
 	echo
@@ -404,52 +411,60 @@ if test $db_ok_version = no; then
 	exit 1;
 fi
 
-AC_RUN_IFELSE([
-	#include <db.h>
-	int main() 
-	{
-		int major, minor, patch;
-		float ver;
+AC_RUN_IFELSE([AC_LANG_SOURCE([[
+    #include <db.h>
+    int main() 
+    {
+        int major, minor, patch;
+        float ver;
 #if DB_VERSION_MAJOR
-                major = DB_VERSION_MAJOR;
-                minor = DB_VERSION_MINOR;
-                patch = DB_VERSION_PATCH;
+        major = DB_VERSION_MAJOR;
+        minor = DB_VERSION_MINOR;
+        patch = DB_VERSION_PATCH;
 #else
-                db_version(&major, &minor, &patch);
+        db_version(&major, &minor, &patch);
 #endif
-		ver = major + ((float) minor / 1000);
-                if (ver >= 3.002)
+        ver = major + ((float) minor / 1000);
+        if (ver >= 3.002)
 			exit (0);
 		exit (1);
 	}	
-	], dbg2_ok_version=yes, dbg2_ok_version=no, dbg2_ok_version=yes)
+	]])],
+	[dbg2_ok_version=yes],
+    [dbg2_ok_version=no],
+    [dbg2_ok_version=yes]
+)
 
 if test $dbg2_ok_version = yes; then
 	AC_DEFINE(DB_VERSION_GT2, 1, [Define if you have dbversion greater than 3.2])
 fi
 
-AC_RUN_IFELSE([
-        #include <db.h>
-        int main()
-        {
-                int major, minor, patch;
-                float ver;
+AC_RUN_IFELSE([AC_LANG_SOURCE([[
+    #include <db.h>
+    int main() 
+    {
+        int major, minor, patch;
+        float ver;
 #if DB_VERSION_MAJOR
-                major = DB_VERSION_MAJOR;
-                minor = DB_VERSION_MINOR;
-                patch = DB_VERSION_PATCH;
+        major = DB_VERSION_MAJOR;
+        minor = DB_VERSION_MINOR;
+        patch = DB_VERSION_PATCH;
 #else
-                db_version(&major, &minor, &patch);
+        db_version(&major, &minor, &patch);
 #endif
-                ver = major + ((float) minor / 1000);
-                if (ver >= 4.002)
-                        exit (0);
-                exit (1);
-        }
-        ], dbg3_ok_version=yes, dbg3_ok_version=no, dbg3_ok_version=yes)
+        ver = major + ((float) minor / 1000);
+        if (ver >= 4.002)
+			exit (0);
+		exit (1);
+	}	
+	]])],
+	[dbg3_ok_version=yes],
+    [dbg3_ok_version=no],
+    [dbg3_ok_version=yes]
+)
 
 if test $dbg3_ok_version = yes; then
-        AC_DEFINE(DB_VERSION_GT3, 1, [Define if you have dbversion greater than 4.0])
+    AC_DEFINE(DB_VERSION_GT3, 1, [Define if you have dbversion greater than 4.0])
 fi
 
 

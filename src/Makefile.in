@@ -149,12 +149,12 @@ realclean:: clean
 
 distclean:: realclean
 	@echo making $@ in `basename \`pwd\``
-	$(RM) Makefile sg.h config.h
+	$(RM) Makefile sg.h sg.y config.h
+	$(RM) main.c sgDiv.c sgLog.c
 
 #
 # Dependencies for maintenance
 #
-
 
 subdir = src
 

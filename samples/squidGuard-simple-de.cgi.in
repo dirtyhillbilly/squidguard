@@ -3,7 +3,7 @@
 # Beispel-CGI Skript, um dem Benutzer zu erklaeren, aufgrund welcher Regel
 # eine URL geblockt worden ist.
 #
-# Englisches Orginal von Pål Baltzersen 1998
+# Englisches Orginal von PÃ¥l Baltzersen 1998
 # Deutsche Uebersetzung von Christine Kronberg 2007
 #
 
@@ -47,6 +47,8 @@ if ($url =~ /\.(gif|jpg|jpeg|mpg|mpeg|avi|mov)$/i) {
   }
   close(GIF)
 } else {
+  $url =~ s/</&lt;/g ;
+  $url =~ s/>/&gt;/g ;
   print "Content-type: text/html\n";
   ($sec,$min,$hour,$mday,$mon,$year,$wday,$yday,$isdst) = gmtime($time);
   printf "Expires: %s, %02d-%s-%02d %02d:%02d:%02d GMT\n\n", $day[$wday],$mday,$month[$mon],$year,$hour,$min,$sec;

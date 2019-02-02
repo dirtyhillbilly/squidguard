@@ -76,6 +76,7 @@ weekdays (({weekday}{s}*[, \t]+{s}*)*{weekday})|[\*]
 
 
 %x REDIRECT_STATE
+%x LDAPURI_STATE
 %x EXEC_STATE
 %x STRING_STATE
 
@@ -116,13 +117,11 @@ userquery   {
 	return USERQUERY;
 	}
 ldapusersearch {
-       /* use the REDIRECT_STATE logic, since it handles URLs nicely */
-       /* BEGIN REDIRECT_STATE; */
+       BEGIN LDAPURI_STATE; 
        return LDAPUSERSEARCH;
        }
 ldapipsearch {
-       /* use the REDIRECT_STATE logic, since it handles URLs nicely */
-       BEGIN REDIRECT_STATE;
+       BEGIN LDAPURI_STATE;
        return LDAPIPSEARCH;
        }
 execuserlist {
@@ -163,6 +162,11 @@ ip          return IP;
 <REDIRECT_STATE>[ \t]+     ;
 <REDIRECT_STATE>\n        {lineno++;}
 <REDIRECT_STATE>.         {return yytext[0];}
+
+<LDAPURI_STATE>[a-zA-Z3\/][a-zA-Z0-9/_\*\-\.\,\(\)\/\:\%\+\?=&~!]*  { yylval.string = yytext ; BEGIN 0; return WORD;}
+<LDAPURI_STATE>[ \t]+     ;
+<LDAPURI_STATE>\n        {lineno++;}
+<LDAPURI_STATE>.         {return yytext[0];}
 
 <EXEC_STATE>[^\n]* { yylval.string = yytext; BEGIN 0; return EXECCMD; }
 <EXEC_STATE>\n     {lineno++;}

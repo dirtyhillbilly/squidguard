@@ -406,6 +406,25 @@ void sgReadConfig (file)
   fclose(yyin);
 }
 
+#if __STDC__
+struct UserInfo *setuserinfo()
+#else
+struct UserInfo *setuserinfo()
+#endif
+{
+  static struct UserInfo uq;
+  uq.status = 0; 
+  uq.time = 0; 
+  uq.consumed = 0; 
+  uq.last = 0; 
+#ifdef HAVE_LIBLDAP
+  uq.ldapuser = 0;
+  uq.found = 0;
+  uq.cachetime = 0;
+#endif
+  return &uq;
+}
+
 
 /*
   
