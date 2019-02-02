@@ -1,3 +1,11 @@
+squidguard (1.6.0-1) UNRELEASED; urgency=medium
+
+  * New upstream release with many fixes and updates (see CHANGELOG).
+  * Remove all patches (thanks to upstream developer).
+  * Update upstream check in debian/watch.
+
+ -- Joachim Wiedorn <joodebian@joonet.de>  Sat, 02 Feb 2019 18:13:22 +0100
+
 squidguard (1.5-7) unstable; urgency=medium
 
   * Bugfix for update-squidguard: Fix problem with tabs

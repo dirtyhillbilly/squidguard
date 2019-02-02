@@ -1,15 +1,1 @@
-01_add-destdir-in-makefile.patch
-02_add-upstream-fix-to-sgDiv.patch
-04_update-links-in-doc-files.patch
-05_distclean-more-files.patch
-06_move-setuserinfo-to-sg-y.patch
-07_update-samples-to-utf8.patch
-09_missing-content-after-percent-sign.patch
-10_use-newer-ldapsearch-of-denis.patch
-11_fix-for-clean-target-without-syslog.patch
-12_enable-ldap-deprecated.patch
-13_fix-time-printing-format.patch
-14_fix-working-with-squid-3-4.patch
-15_add-ipv6-support.patch
-16_XSS-security-bugfix.patch
-17_add-include-htescape-h.patch
+
