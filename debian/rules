@@ -8,7 +8,7 @@ export BASE=debian/squidguard
 export BASEDOC=debian/squidguard-doc
 
 %:
-	dh $@
+	dh $@ --no-parallel --with autoreconf
 
 override_dh_auto_configure: 
 	dh_auto_configure  --    \
@@ -18,6 +18,9 @@ override_dh_auto_configure:
 		--with-sg-config=/etc/squidguard/squidGuard.conf \
 		--with-sg-logdir=/var/log/squidguard \
 		--with-sg-dbhome=/var/lib/squidguard/db
+
+override_dh_autoreconf:
+	dh_autoreconf ./autogen.sh
 
 override_dh_install: 
 	dh_install

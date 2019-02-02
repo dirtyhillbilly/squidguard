@@ -1,8 +1,11 @@
-squidguard (1.6.0-1) UNRELEASED; urgency=medium
+squidguard (1.6.0-1) unstable; urgency=medium
 
   * New upstream release with many fixes and updates (see CHANGELOG).
   * Remove all patches (thanks to upstream developer).
   * Update upstream check in debian/watch.
+  * debian/rules: 
+    - do not compile parallel. Closes: #919768
+    - use autoreconf together with autogen.sh.
 
  -- Joachim Wiedorn <joodebian@joonet.de>  Sat, 02 Feb 2019 18:13:22 +0100
 
