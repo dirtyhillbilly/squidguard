@@ -1,0 +1,50 @@
+Description: Fix ftbfs with GCC-10
+
+Author: Sudip Mukherjee <sudipm.mukherjee@gmail.com>
+Bug-Debian: https://bugs.debian.org/957841
+Forwarded: no
+
+---
+
+--- squidguard-1.6.0.orig/src/main.c.in
++++ squidguard-1.6.0/src/main.c.in
+@@ -71,6 +71,8 @@ int sgtime = 0;
+ char *globalLogDir = NULL;
+ int globalSyslog = 0;
+ 
++char *progname;
++int lineno;
+ 
+ #if __STDC__
+ int main(int    argc,
+--- squidguard-1.6.0.orig/src/sg.h.in
++++ squidguard-1.6.0/src/sg.h.in
+@@ -115,7 +115,7 @@ int tolower();
+ #define REDIRECT_PERMANENT   "301:"
+ #define REDIRECT_TEMPORARILY "302:"
+ 
+-char *progname;
++extern char *progname;
+ 
+ struct LogFileStat {
+   char *name;
+@@ -337,7 +337,7 @@ struct AclDest {
+   struct AclDest *next;
+ };
+ 
+-int lineno;
++extern int lineno;
+ 
+ char   *sgParseRedirect	__P((char *, struct SquidInfo *, struct Acl *, struct AclDest *));
+ char   *sgAclAccess __P((struct Source *, struct Acl *, struct SquidInfo *));
+--- squidguard-1.6.0.orig/src/sg.y.in
++++ squidguard-1.6.0/src/sg.y.in
+@@ -35,7 +35,7 @@ extern int globalSyslog;
+ 
+ #include "sgEx.h"
+ 
+-FILE *yyin, *yyout;
++extern FILE *yyin, *yyout;
+ char *configFile;
+ 
+ int numTimeElements;
