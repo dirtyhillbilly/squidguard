@@ -1,0 +1,53 @@
+Package:     squidguard
+Subject:     Fix ftbfs with GCC-10
+Author:      Sudip Mukherjee <sudipm.mukherjee@gmail.com>
+Bug-Debian:  https://bugs.debian.org/957841
+Forwarded:   no
+Last-Update: 2020-08-06
+---
+
+diff -urN s00/src/main.c.in s01/src/main.c.in
+--- s00/src/main.c.in	2019-02-02 18:00:15.000000000 +0100
++++ s01/src/main.c.in	2021-01-06 00:16:10.382527273 +0100
+@@ -71,6 +71,8 @@
+ char *globalLogDir = NULL;
+ int globalSyslog = 0;
+ 
++char *progname;
++int lineno;
+ 
+ #if __STDC__
+ int main(int    argc,
+diff -urN s00/src/sg.h.in s01/src/sg.h.in
+--- s00/src/sg.h.in	2010-09-09 12:50:54.000000000 +0200
++++ s01/src/sg.h.in	2021-01-06 00:16:10.382527273 +0100
+@@ -115,7 +115,7 @@
+ #define REDIRECT_PERMANENT   "301:"
+ #define REDIRECT_TEMPORARILY "302:"
+ 
+-char *progname;
++extern char *progname;
+ 
+ struct LogFileStat {
+   char *name;
+@@ -337,7 +337,7 @@
+   struct AclDest *next;
+ };
+ 
+-int lineno;
++extern int lineno;
+ 
+ char   *sgParseRedirect	__P((char *, struct SquidInfo *, struct Acl *, struct AclDest *));
+ char   *sgAclAccess __P((struct Source *, struct Acl *, struct SquidInfo *));
+diff -urN s00/src/sg.y.in s01/src/sg.y.in
+--- s00/src/sg.y.in	2019-02-02 18:00:15.000000000 +0100
++++ s01/src/sg.y.in	2021-01-06 00:16:10.382527273 +0100
+@@ -35,7 +35,7 @@
+ 
+ #include "sgEx.h"
+ 
+-FILE *yyin, *yyout;
++extern FILE *yyin, *yyout;
+ char *configFile;
+ 
+ int numTimeElements;
