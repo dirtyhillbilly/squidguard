@@ -1,3 +1,11 @@
+squidguard (1.6.0-2) unstable; urgency=medium
+
+  * debian/control:
+    - Bump to Standards-Version 4.5.1 (no changes).
+    - Move to debhelper-compat 12.
+
+ -- Joachim Wiedorn <joodebian@joonet.de>  Wed, 06 Jan 2021 00:41:41 +0100
+
 squidguard (1.6.0-1.1) unstable; urgency=medium
 
   * Non-maintainer upload.
