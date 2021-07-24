@@ -1,3 +1,9 @@
+squidguard (1.6.0-3) unstable; urgency=medium
+
+  * Redirect instead of rewrite.
+
+ -- guillaume pernot <gpernot@praksys.org>  Sat, 24 Jul 2021 17:16:58 +0200
+
 squidguard (1.6.0-2) unstable; urgency=medium
 
   * debian/control:
