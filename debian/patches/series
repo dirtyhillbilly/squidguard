@@ -1,1 +1,2 @@
 10_fix-ftbfs-for-gcc10.patch
+20_redirect-instead-of-rewrite.diff
